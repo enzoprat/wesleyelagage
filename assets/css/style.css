@@ -133,6 +133,10 @@ strong { font-weight: 600; }
 .section--sapin h2,
 .section--sapin h3 { color: var(--blanc); }
 .section--sapin a { color: var(--blanc); }
+/* Le bouton clair garde son texte vert sur son fond blanc,
+   sinon la règle ci-dessus le rendrait illisible. */
+.section--sapin a.bouton--clair,
+.section--sapin a.bouton--clair:hover { color: var(--sapin); }
 
 .saut-contenu {
   position: absolute;
@@ -354,18 +358,18 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   flex-shrink: 0;
 }
 .logo__marque {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--sapin);
+  background: var(--blanc);
   color: var(--blanc);
   display: grid;
   place-items: center;
   flex-shrink: 0;
   transition: width var(--transition), height var(--transition);
 }
-.logo__marque svg { width: 22px; height: 22px; }
-.entete.est-compacte .logo__marque { width: 34px; height: 34px; }
+.logo__marque img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.entete.est-compacte .logo__marque { width: 36px; height: 36px; }
 
 .logo__texte { display: flex; flex-direction: column; line-height: 1.15; }
 .logo__nom {
@@ -619,14 +623,32 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
    10. Visuels et blocs de remplissage
    -------------------------------------------------------------------------- */
 .visuel {
+  position: relative;
   border-radius: var(--r-carte);
   overflow: hidden;
   background: var(--blanc);
 }
-.visuel img { width: 100%; height: 100%; object-fit: cover; }
+.visuel img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .visuel--panoramique { aspect-ratio: 16 / 7; }
 .visuel--carre { aspect-ratio: 1 / 1; }
 .visuel--portrait { aspect-ratio: 4 / 5; }
+
+/* Mention portée par les photos qui ne viennent pas des chantiers de l'entreprise. */
+.visuel__mention {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(20, 49, 31, 0.72);
+  color: var(--blanc);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 599px) {
+  .visuel--carre .visuel__mention { font-size: 0.66rem; padding: 3px 9px; }
+}
 
 /* Bloc de remplissage, photo à fournir par le client */
 .a-fournir {
@@ -1228,10 +1250,11 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 }
 .pied__liste a:hover { color: var(--blanc); text-decoration: underline; }
 
-.pied__logo { margin-bottom: 18px; }
+/* Le logo occupe sa propre ligne, sinon le numéro vient le coller sur mobile. */
+.pied__logo { display: flex; width: fit-content; margin-bottom: 18px; }
 .pied__logo .logo__nom { color: var(--blanc); }
 .pied__logo .logo__metier { color: var(--sur-sapin-doux); }
-.pied__logo .logo__marque { background: var(--mousse); }
+.pied__logo .logo__marque { background: var(--blanc); }
 
 .pied__tel {
   display: inline-block;
@@ -1365,7 +1388,8 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   max-width: 100%;
   overflow-wrap: anywhere;
 }
-.section--sapin .a-confirmer { background: rgba(255, 255, 255, 0.14); color: #E0C6A8; }
+.section--sapin .a-confirmer,
+.pied .a-confirmer { background: rgba(255, 255, 255, 0.14); color: #E0C6A8; }
 
 /* Bloc de maillage interne */
 .maillage { display: grid; gap: 22px; }

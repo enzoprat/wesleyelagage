@@ -1,11 +1,27 @@
-# Wesley Élagage, éléments à fournir avant présentation client
+# LCC Espaces Verts, éléments à fournir avant présentation client
 
-Le site contient **492 marqueurs `[[À CONFIRMER]]`** répartis sur **118 libellés distincts** et **28 pages**.
+Le site contient **459 marqueurs `[[À CONFIRMER]]`** répartis sur **116 libellés distincts** et **28 pages**.
 Chacun est visible à l'écran, entouré d'une pastille couleur écorce. Aucun chiffre, avis, certification, durée ou prix n'a été inventé.
 
 Colonne **Bloquant** :
 - **Oui** = ne peut pas être montré en l'état à un prospect ni mis en ligne.
 - **Non** = le site reste présentable, l'information enrichit la page.
+
+## Données reçues et déjà intégrées
+
+| Donnée | Valeur en place | Portée |
+| --- | --- | --- |
+| Nom commercial | LCC Espaces Verts | 218 occurrences, 28 pages |
+| Téléphone | 06 41 59 80 54, lien `tel:+33641598054` | 236 occurrences |
+| SIREN | 490 985 520 | Pied de page de chaque page, mentions légales |
+| SIRET du siège | 490 985 520 00033 | Mentions légales |
+| Début d'activité | 2006 | Accueil, entreprise |
+| Volume annuel | Plus de 220 chantiers par an | Accueil, entreprise |
+| Activité de l'année | Plus de 160 interventions depuis janvier | Accueil, entreprise |
+| Prestation ajoutée | Débroussaillage et manutention | Page service, 9 menus, formulaire |
+| Logo | Emblème détouré du fichier fourni | En-tête et pied de page des 28 pages, favicon |
+
+Le nom de domaine `lcc-espacevert.fr` a été déduit du nouveau nom et appliqué aux balises canoniques, aux données structurées, au sitemap et à robots.txt. **Il n'a pas été fourni et doit être vérifié comme réservé avant la mise en ligne.**
 
 ---
 
@@ -14,8 +30,6 @@ Colonne **Bloquant** :
 | Élément | Où | Occurrences | Bloquant |
 | --- | --- | --- | --- |
 | Forme juridique | Pied de page de chaque page, mentions légales | 28 | Oui |
-| Numéro SIREN | Pied de page de chaque page, mentions légales | 28 | Oui |
-| Numéro SIRET du siège | Mentions légales | 1 | Oui |
 | Ville d'immatriculation au RCS | Mentions légales | 1 | Oui |
 | Capital social, le cas échéant | Mentions légales | 1 | Non |
 | Numéro de TVA intracommunautaire | Mentions légales | 1 | Non |
@@ -35,7 +49,7 @@ Colonne **Bloquant** :
 | Rayon d'intervention au-delà de la métropole | Accueil, zones d'intervention | 3 | Non |
 | Communes de périphérie à traiter en priorité | Accueil, zones d'intervention | 2 | Non |
 
-Les autres coordonnées sont déjà en place et identiques partout : Wesley Élagage, 1 avenue de Bellevue, 33700 Mérignac, 06 16 55 46 96, du lundi au samedi de 7h30 à 19h.
+Les autres coordonnées sont déjà en place et identiques partout : LCC Espaces Verts, 1 avenue de Bellevue, 33700 Mérignac, 06 41 59 80 54, du lundi au samedi de 7h30 à 19h.
 
 ## 3. Assurance et qualifications
 
@@ -50,26 +64,30 @@ Les autres coordonnées sont déjà en place et identiques partout : Wesley Éla
 | Autorisations de conduite des engins de broyage et de rognage | Débroussaillage, dessouchage | 2 | Non |
 | Habilitation électrique et intervention près des réseaux | Urgence tempête | 1 | Oui |
 | Qualification en diagnostic de l'arbre, visuel ou instrumenté | Soins et diagnostic | 1 | Oui |
-| Années d'expérience | Accueil | 1 | Non |
-| Année de création et parcours du gérant | Accueil, entreprise | 2 | Non |
+| Parcours du gérant et formation suivie | Accueil, entreprise | 2 | Non |
 | Nombre de personnes dans l'équipe | Entreprise | 1 | Non |
 
 ## 4. Photographies
 
-Aucune photo n'est utilisée pour l'instant. Chaque emplacement est un bloc clair à bordure verte qui nomme la photo attendue. **Aucune banque d'images n'a été employée, conformément à la consigne.**
+Des photographies de banque d'images libres de droits ont été posées à votre demande, pour que la maquette se présente avec de vraies images. Chacune porte la mention visible « Photo d'illustration ». **Aucune ne montre un chantier de LCC Espaces Verts.** Elles sont destinées à être remplacées par vos propres photos.
 
-| Élément | Où | Bloquant |
-| --- | --- | --- |
-| Bandeau panoramique de la page d'accueil | Accueil | Oui |
-| Bandeau panoramique de chaque page service | 9 pages service | Oui |
-| Bandeau panoramique de chaque page ville | 12 pages ville | Oui |
-| Portrait de Wesley en hauteur, harnais visible | Entreprise, élagage | Oui |
-| Photo d'équipe devant le camion | Entreprise | Non |
-| Paires avant et après pour chaque chantier | Réalisations, pages ville | Oui |
-| Visuels révélés à l'ouverture des lignes de service | Accueil | Oui |
-| Photos de matériel, broyeur, rogneuse, nacelle | Entreprise, pages service | Non |
+Les emplacements restants sont des blocs clairs à bordure verte qui nomment la photo attendue. Ils concernent les chantiers réels, qu'une photo d'illustration ne peut pas représenter sans tromper le visiteur.
 
-Format attendu : WebP, 1600 pixels de large pour les panoramiques, 900 pixels pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
+| Élément | Où | État | Bloquant |
+| --- | --- | --- | --- |
+| Bandeau panoramique de la page d'accueil | Accueil | Illustration en place | Oui |
+| Visuels des lignes de service dépliables | Accueil | Illustration en place | Oui |
+| Portrait vertical de la section entreprise | Accueil | Illustration en place | Oui |
+| Bandeau panoramique de chaque page service | 9 pages service | Illustration en place | Oui |
+| Bandeau panoramique de chaque page ville | 12 pages ville | À fournir | Oui |
+| Portrait du gérant en hauteur, harnais visible | Entreprise, élagage | À fournir | Oui |
+| Photo d'équipe devant le camion | Entreprise | À fournir | Non |
+| Paires avant et après pour chaque chantier | Réalisations, accueil, pages ville | À fournir | Oui |
+| Photos de matériel, broyeur, rogneuse, nacelle | Entreprise, pages service | À fournir | Non |
+
+Format attendu : WebP, 1600 pixels de large pour les panoramiques, 800 pixels pour les carrés, 900 pixels pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
+
+Une fois vos photos livrées, retirez la mention « Photo d'illustration » du balisage et remplacez les textes alternatifs, qui décrivent aujourd'hui la scène générique et non votre chantier.
 
 ## 5. Chantiers et réalisations
 
@@ -160,13 +178,13 @@ Le site ne dépose aujourd'hui **aucun cookie**. Aucun bandeau de consentement n
 
 Sept ensembles empêchent une mise en ligne en l'état.
 
-1. Forme juridique, SIREN et SIRET.
-2. Adresse e-mail de contact.
-3. Assureur et numéro de contrat en responsabilité civile professionnelle.
-4. Certifications et habilitations réelles de l'équipe.
-5. Photographies de chantiers, avant et après, avec accord des propriétaires.
-6. Avis clients réels, repris mot pour mot depuis la fiche Google Business.
-7. Coordonnées de l'hébergeur et durée de conservation des données.
+1. Nom de domaine réellement réservé, en remplacement de `lcc-espacevert.fr` qui a été déduit.
+2. Forme juridique.
+3. Adresse e-mail de contact.
+4. Assureur et numéro de contrat en responsabilité civile professionnelle.
+5. Certifications et habilitations réelles de l'équipe.
+6. Photographies de vos chantiers, avant et après, avec accord des propriétaires, en remplacement des photos d'illustration.
+7. Avis clients réels, repris mot pour mot depuis la fiche Google Business, et coordonnées de l'hébergeur.
 
 ## Ce qui est déjà figé et cohérent sur les 28 pages
 
@@ -179,3 +197,5 @@ Sept ensembles empêchent une mise en ligne en l'état.
 - Aucun deux-points dans un titre, aucun titre en capitales.
 - Vert profond limité à trois blocs sur la page d'accueil.
 - Formulaire refusant l'envoi sans la case de consentement cochée.
+- Aucun débordement horizontal à 375 pixels de large, sur les 28 pages.
+- Toutes les images se chargent, aux formats WebP, avec dimensions déclarées et chargement différé.
