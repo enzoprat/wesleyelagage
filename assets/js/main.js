@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Wesley Élagage — script commun
+   LCC Espaces Verts, script commun
    Aucune dépendance externe
    ========================================================================== */
 (function () {
