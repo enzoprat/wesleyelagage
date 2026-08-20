@@ -1,6 +1,6 @@
 # Questions à poser à l'artisan
 
-459 informations manquent sur le site. Elles sont toutes visibles à l'écran, entourées d'une pastille couleur écorce, tant qu'elles ne sont pas remplies.
+459 informations manquent sur le site. Elles sont repérées dans le code source, mais masquées à l'écran pour la présentation. Le fichier `A-COMPLETER.md` explique comment les réafficher.
 
 Ce document les regroupe en questions concrètes. Les sections **1 à 4** empêchent la mise en ligne. Les sections **5 à 10** enrichissent le site sans le bloquer.
 

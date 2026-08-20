@@ -6,6 +6,108 @@
   "use strict";
 
   /* ------------------------------------------------------------------
+     Mode présentation client
+
+     Masque les marqueurs à confirmer et tout ce qui deviendrait vide
+     sans eux. Rien n'est supprimé du code source, seul l'affichage change.
+
+     Passer cette constante à false pour revoir les 459 marqueurs.
+     ------------------------------------------------------------------ */
+  var MASQUER_A_CONFIRMER = true;
+
+  if (MASQUER_A_CONFIRMER) {
+    // 0. Certains blocs ne tiennent que par leurs marqueurs, comme la section
+    //    hébergement des mentions légales. Sans eux il resterait un titre nu
+    //    ou une phrase amputée. Ils sont signalés dans le HTML et partent
+    //    en entier, avant même le traitement des marqueurs.
+    document.querySelectorAll("[data-en-attente]").forEach(function (bloc) {
+      bloc.hidden = true;
+    });
+
+    // 1. Chaque marqueur disparaît. Une ligne de tableau de valeurs ou une
+    //    carte d'avis n'a plus de sens sans sa valeur, elle part en entier.
+    document.querySelectorAll(".a-confirmer").forEach(function (marqueur) {
+      if (marqueur.closest("[data-en-attente]")) return;
+
+      var porteur = marqueur.closest("li, .avis");
+      if (porteur) {
+        porteur.hidden = true;
+        return;
+      }
+      var parent = marqueur.parentElement;
+
+      // Dans un bloc d'adresse, le marqueur suit une étiquette du type
+      // "Adresse e-mail" sur sa propre ligne. Sans sa valeur, l'étiquette
+      // resterait seule, on retire donc la ligne entière.
+      var aRetirer = [];
+      var precedent = marqueur.previousSibling;
+      while (precedent && precedent.nodeName !== "BR") {
+        aRetirer.push(precedent);
+        precedent = precedent.previousSibling;
+      }
+      var etiquette = aRetirer
+        .map(function (noeud) {
+          return noeud.textContent;
+        })
+        .join("")
+        .trim();
+      if (precedent && etiquette && etiquette.split(/\s+/).length <= 4) {
+        aRetirer.forEach(function (noeud) {
+          noeud.parentNode.removeChild(noeud);
+        });
+        precedent.parentNode.removeChild(precedent);
+      }
+
+      marqueur.remove();
+      if (!parent.textContent.trim()) {
+        parent.hidden = true;
+        return;
+      }
+
+      // Le marqueur était souvent encadré de virgules, comme dans
+      // « LCC Espaces Verts, forme juridique, SIREN ». Sans lui il resterait
+      // « LCC Espaces Verts, , SIREN ». On recolle les nœuds de texte
+      // séparés par le marqueur, puis on réduit la ponctuation en double.
+      parent.normalize();
+      Array.prototype.forEach.call(parent.childNodes, function (noeud) {
+        if (noeud.nodeType !== 3) return;
+        var propre = noeud.nodeValue
+          .replace(/,(\s*,)+/g, ",")
+          .replace(/\s+([,.;])/g, "$1")
+          .replace(/([,;])\s*\./g, ".");
+        if (propre !== noeud.nodeValue) noeud.nodeValue = propre;
+      });
+    });
+
+    // 2. Une liste dont toutes les lignes sont masquées laisserait une marge.
+    //    Et si seules les dernières partent, la ligne restante garderait sa
+    //    puce de séparation, on la marque pour que la feuille de style la retire.
+    document.querySelectorAll("ul, ol, dl").forEach(function (liste) {
+      var visibles = Array.prototype.filter.call(liste.children, function (ligne) {
+        return !ligne.hidden;
+      });
+      if (!visibles.length) {
+        liste.hidden = true;
+        return;
+      }
+      if (visibles.length !== liste.children.length) {
+        visibles[visibles.length - 1].classList.add("est-dernier-visible");
+      }
+    });
+
+    // 3. Les trois avis sont entièrement en attente. Les garder afficherait
+    //    des cartes à cinq étoiles sans texte, ce qui reviendrait à inventer
+    //    une note. Toute la section part.
+    var grilleAvis = document.querySelector(".grille-avis");
+    if (grilleAvis && !grilleAvis.querySelector(".avis:not([hidden])")) {
+      var sectionAvis = grilleAvis.closest("section");
+      if (sectionAvis) {
+        sectionAvis.hidden = true;
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------
      En-tête compacte au défilement
      ------------------------------------------------------------------ */
   var entete = document.querySelector("[data-entete]");

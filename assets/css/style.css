@@ -3,6 +3,12 @@
    Palette 5 valeurs, formes arrondies généreuses, serif Bitter + sans Inter
    ========================================================================== */
 
+/* L'attribut hidden doit l'emporter sur les display des composants,
+   sinon un li en flex ou une carte en grid resterait visible. */
+[hidden] {
+  display: none !important;
+}
+
 /* --------------------------------------------------------------------------
    1. Variables
    -------------------------------------------------------------------------- */
@@ -590,7 +596,9 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   color: var(--encre-douce);
 }
 .reassurance li { margin: 0; display: inline-flex; align-items: center; gap: 12px; }
-.reassurance li:not(:last-child)::after {
+/* est-dernier-visible est posée par le script quand des lignes sont masquées,
+   sinon la dernière ligne encore affichée garderait sa puce de séparation. */
+.reassurance li:not(:last-child):not(.est-dernier-visible)::after {
   content: "";
   width: 5px;
   height: 5px;

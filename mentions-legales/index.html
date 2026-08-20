@@ -6,7 +6,10 @@
 <title>Mentions légales du site de LCC Espaces Verts à Mérignac</title>
 <meta name="description" content="Mentions légales du site de LCC Espaces Verts, entreprise d'élagage installée 1 avenue de Bellevue à Mérignac. Éditeur, hébergeur, propriété intellectuelle.">
 <link rel="canonical" href="https://www.lcc-espacevert.fr/mentions-legales/">
-<meta name="robots" content="index, follow">
+<!-- Maquette en cours de validation, pas encore indexable.
+     Remettre "index, follow" ici, et Allow dans robots.txt,
+     le jour de la vraie mise en ligne. -->
+<meta name="robots" content="noindex, nofollow">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -146,7 +149,7 @@
       <h1>Mentions légales</h1>
       <p class="premier-ecran__texte" style="margin-inline:0;max-width:700px">
         Cette page réunit les informations que tout site professionnel doit rendre accessibles.
-        Les éléments encore manquants sont signalés et seront complétés avant la mise en ligne.
+        Elle sera complétée avant la mise en ligne.
       </p>
     </div>
   </section>
@@ -172,13 +175,20 @@
           <li>Registre du commerce et des sociétés <span class="a-confirmer">[[À CONFIRMER : ville d'immatriculation]]</span></li>
         </ul>
 
-        <h2>Directeur de la publication</h2>
-        <div class="filet" aria-hidden="true"></div>
-        <p><span class="a-confirmer">[[À CONFIRMER : nom et prénom du responsable de la publication]]</span></p>
+        <!-- data-en-attente : ces deux sections ne tiennent que par leurs
+             marqueurs. En mode présentation elles partent en entier, une phrase
+             amputée serait pire qu'une section absente. -->
+        <div data-en-attente>
+          <h2>Directeur de la publication</h2>
+          <div class="filet" aria-hidden="true"></div>
+          <p><span class="a-confirmer">[[À CONFIRMER : nom et prénom du responsable de la publication]]</span></p>
+        </div>
 
-        <h2>Hébergement</h2>
-        <div class="filet" aria-hidden="true"></div>
-        <p>Le site est hébergé par <span class="a-confirmer">[[À CONFIRMER : raison sociale de l'hébergeur]]</span>, dont le siège se situe <span class="a-confirmer">[[À CONFIRMER : adresse complète de l'hébergeur]]</span>. Téléphone <span class="a-confirmer">[[À CONFIRMER : numéro de l'hébergeur]]</span>.</p>
+        <div data-en-attente>
+          <h2>Hébergement</h2>
+          <div class="filet" aria-hidden="true"></div>
+          <p>Le site est hébergé par <span class="a-confirmer">[[À CONFIRMER : raison sociale de l'hébergeur]]</span>, dont le siège se situe <span class="a-confirmer">[[À CONFIRMER : adresse complète de l'hébergeur]]</span>. Téléphone <span class="a-confirmer">[[À CONFIRMER : numéro de l'hébergeur]]</span>.</p>
+        </div>
 
         <h2>Assurance professionnelle</h2>
         <div class="filet" aria-hidden="true"></div>
@@ -222,7 +232,7 @@
         <div class="filet" aria-hidden="true"></div>
         <p>Pour toute question relative à ces mentions, appelez le <a href="tel:+33641598054">06 41 59 80 54</a> ou utilisez le <a href="../contact/">formulaire de contact</a>.</p>
 
-        <p><em>Dernière mise à jour <span class="a-confirmer">[[À CONFIRMER : date de mise en ligne]]</span></em></p>
+        <p data-en-attente><em>Dernière mise à jour <span class="a-confirmer">[[À CONFIRMER : date de mise en ligne]]</span></em></p>
       </div>
     </div>
   </section>

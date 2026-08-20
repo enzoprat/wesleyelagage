@@ -1,7 +1,16 @@
 # LCC Espaces Verts, éléments à fournir avant présentation client
 
 Le site contient **459 marqueurs `[[À CONFIRMER]]`** répartis sur **116 libellés distincts** et **28 pages**.
-Chacun est visible à l'écran, entouré d'une pastille couleur écorce. Aucun chiffre, avis, certification, durée ou prix n'a été inventé.
+Aucun chiffre, avis, certification, durée ou prix n'a été inventé.
+
+## Mode présentation, actif aujourd'hui
+
+Le site tourne en mode présentation. Les 459 marqueurs restent dans le code source mais ne s'affichent plus, pour que le client voie une maquette propre.
+
+- Un seul interrupteur : `MASQUER_A_CONFIRMER` en haut de `assets/js/main.js`. Le passer à `false` réaffiche les 459 marqueurs entourés d'une pastille couleur écorce.
+- Ce qui deviendrait vide ou bancal sans sa valeur disparaît aussi : les lignes de tableau, les trois cartes d'avis et leur section entière, les sections hébergement et directeur de la publication des mentions légales.
+- Les blocs concernés portent l'attribut `data-en-attente` dans le HTML. Ils partent en entier, une phrase amputée serait pire qu'une section absente.
+- Les 28 pages sont en `noindex, nofollow` et `robots.txt` est en `Disallow: /`. **Les deux sont à rouvrir le jour de la vraie mise en ligne**, la marche à suivre figure en commentaire dans les deux fichiers.
 
 Colonne **Bloquant** :
 - **Oui** = ne peut pas être montré en l'état à un prospect ni mis en ligne.
@@ -199,3 +208,4 @@ Sept ensembles empêchent une mise en ligne en l'état.
 - Formulaire refusant l'envoi sans la case de consentement cochée.
 - Aucun débordement horizontal à 375 pixels de large, sur les 28 pages.
 - Toutes les images se chargent, aux formats WebP, avec dimensions déclarées et chargement différé.
+- En mode présentation, aucun marqueur visible, aucune virgule ni puce orpheline, aucune phrase amputée, sur les 28 pages.
