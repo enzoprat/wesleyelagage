@@ -29,6 +29,30 @@
      ------------------------------------------------------------------ */
   var MASQUER_REALISATIONS = true;
 
+  /* ------------------------------------------------------------------
+     Envoi des demandes de devis
+
+     Les formulaires sont relayés par Web3Forms, qui reçoit la demande
+     et la transmet par courriel à l'entreprise. La clé d'accès est
+     publique par construction : elle circule dans le code de la page,
+     comme le prévoit le service. Elle n'ouvre aucun accès en lecture,
+     elle ne fait qu'autoriser un dépôt vers une boîte déjà définie.
+     ------------------------------------------------------------------ */
+  var CLE_WEB3FORMS = "a7de7f20-4106-418c-8cca-7a005c71981c";
+  var API_WEB3FORMS = "https://api.web3forms.com/submit";
+
+  /* ------------------------------------------------------------------
+     Pièce jointe
+
+     Web3Forms ne transmet les fichiers que sur son offre payante. Sur
+     l'offre gratuite, une photo jointe serait perdue en silence, donc
+     le champ est masqué et désactivé plutôt qu'affiché pour rien.
+
+     Passer cette constante à true le jour de l'abonnement. Le champ est
+     intact dans le code des 24 formulaires, rien n'a été supprimé.
+     ------------------------------------------------------------------ */
+  var PIECE_JOINTE_ACTIVE = false;
+
   if (MASQUER_REALISATIONS) {
     // La page réalisations n'a plus de raison d'être sans ses chantiers.
     // Elle annoncerait des filtres et des avant-après absents. Un visiteur
@@ -281,8 +305,26 @@
   /* ------------------------------------------------------------------
      Formulaire de devis, validation en direct et envoi sans rechargement
      ------------------------------------------------------------------ */
+  if (!PIECE_JOINTE_ACTIVE) {
+    document.querySelectorAll('[data-formulaire] input[type="file"]').forEach(function (champ) {
+      var groupe = champ.closest(".champ") || champ;
+      groupe.hidden = true;
+      // Désactivé, donc absent de l'envoi. Un champ seulement masqué
+      // resterait dans les données et partirait vide.
+      champ.disabled = true;
+    });
+
+    // La politique de confidentialité annonce la photo parmi les données
+    // recueillies. Tant que le champ n'existe pas, cette annonce est fausse.
+    document.querySelectorAll("[data-piece-jointe]").forEach(function (element) {
+      element.hidden = true;
+    });
+  }
+
   document.querySelectorAll("[data-formulaire]").forEach(function (formulaire) {
     var confirmation = formulaire.parentNode.querySelector("[data-confirmation]");
+    var bouton = formulaire.querySelector('button[type="submit"]');
+    var libelleBouton = bouton ? bouton.textContent : "";
 
     var messages = {
       nom: "Indiquez votre nom et votre prénom.",
@@ -339,6 +381,44 @@
       });
     });
 
+    // Zone d'état de l'envoi, créée à la demande. Elle sert à dire que
+    // l'envoi est en cours, puis à annoncer un échec. Le succès garde son
+    // bloc de confirmation, déjà présent dans le code de chaque page.
+    function zoneEnvoi() {
+      var pied = formulaire.querySelector(".formulaire__pied") || formulaire;
+      var bloc = pied.querySelector("[data-envoi]");
+      if (!bloc) {
+        bloc = document.createElement("p");
+        bloc.className = "formulaire__envoi";
+        bloc.setAttribute("data-envoi", "");
+        bloc.setAttribute("role", "status");
+        pied.appendChild(bloc);
+      }
+      return bloc;
+    }
+
+    function etatEnvoi(texte, echec) {
+      var bloc = zoneEnvoi();
+      bloc.textContent = texte || "";
+      bloc.classList.toggle("formulaire__envoi--echec", Boolean(echec));
+    }
+
+    // Le numéro affiché en haut de page, plutôt qu'une copie dans le script
+    // qui finirait par diverger le jour d'un changement de ligne.
+    function numeroSecours() {
+      var lien = document.querySelector('a[href^="tel:"]');
+      return lien ? lien.textContent.trim() : "";
+    }
+
+    function objet(donnees) {
+      var morceaux = [];
+      if (donnees.get("urgence")) morceaux.push("URGENCE");
+      morceaux.push("Demande de devis");
+      if (donnees.get("intervention")) morceaux.push(String(donnees.get("intervention")));
+      if (donnees.get("commune")) morceaux.push(String(donnees.get("commune")));
+      return morceaux.join(", ");
+    }
+
     formulaire.addEventListener("submit", function (evenement) {
       evenement.preventDefault();
 
@@ -356,22 +436,83 @@
 
       if (!valide) {
         if (confirmation) confirmation.classList.remove("est-visible");
+        etatEnvoi("");
         if (premierFautif) premierFautif.focus();
         return;
       }
 
-      formulaire.reset();
-      champs.forEach(function (champ) {
-        champ.setAttribute("aria-invalid", "false");
-        var affichage = zoneErreur(champ);
-        if (affichage) affichage.textContent = "";
+      var donnees = new FormData(formulaire);
+      donnees.append("access_key", CLE_WEB3FORMS);
+      donnees.append("from_name", "Site LCC Espaces Verts");
+      donnees.append("subject", objet(donnees));
+      // La page d'origine, pour savoir depuis quel service ou quelle
+      // commune la demande a été envoyée.
+      donnees.append("page", window.location.href);
+
+      // Une pièce jointe impose l'envoi en multipart. Sans fichier, le
+      // service attend du JSON, qui est aussi le chemin qu'il documente.
+      var fichier = false;
+      donnees.forEach(function (valeur) {
+        if (valeur instanceof File && valeur.size > 0) fichier = true;
       });
 
-      if (confirmation) {
-        confirmation.classList.add("est-visible");
-        confirmation.setAttribute("tabindex", "-1");
-        confirmation.focus();
+      var requete = fichier
+        ? { method: "POST", headers: { Accept: "application/json" }, body: donnees }
+        : {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(Object.fromEntries(donnees))
+          };
+
+      if (confirmation) confirmation.classList.remove("est-visible");
+      etatEnvoi("Envoi en cours.");
+      if (bouton) {
+        bouton.disabled = true;
+        bouton.textContent = "Envoi en cours";
       }
+
+      function rendreLeBouton() {
+        if (!bouton) return;
+        bouton.disabled = false;
+        bouton.textContent = libelleBouton;
+      }
+
+      fetch(API_WEB3FORMS, requete)
+        .then(function (reponse) {
+          if (!reponse.ok) throw new Error("Réponse " + reponse.status);
+          return reponse.json();
+        })
+        .then(function (resultat) {
+          if (!resultat || resultat.success !== true) throw new Error("Envoi refusé");
+
+          rendreLeBouton();
+          etatEnvoi("");
+          formulaire.reset();
+          champs.forEach(function (champ) {
+            champ.setAttribute("aria-invalid", "false");
+            var affichage = zoneErreur(champ);
+            if (affichage) affichage.textContent = "";
+          });
+
+          if (confirmation) {
+            confirmation.classList.add("est-visible");
+            confirmation.setAttribute("tabindex", "-1");
+            confirmation.focus();
+          }
+        })
+        .catch(function () {
+          rendreLeBouton();
+          // Le formulaire n'est pas vidé : la personne retrouve sa saisie
+          // et peut réessayer sans tout retaper.
+          var numero = numeroSecours();
+          etatEnvoi(
+            "L'envoi a échoué. Réessayez dans un instant" +
+              (numero ? ", ou appelez le " + numero : "") + ".",
+            true
+          );
+          zoneEnvoi().setAttribute("tabindex", "-1");
+          zoneEnvoi().focus();
+        });
     });
   });
 

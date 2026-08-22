@@ -38,8 +38,8 @@ Bloquant. Un prospect qui ne voit ni assurance ni certification passe au concurr
 
 Bloquant. Le formulaire de devis et les mentions légales en dépendent.
 
-13. Quelle adresse e-mail afficher publiquement ? *(53 emplacements)*
-14. Faut-il une adresse e-mail distincte pour les demandes liées aux données personnelles ?
+13. Souhaitez-vous une adresse e-mail professionnelle à afficher ? *(53 emplacements)* Vous nous avez dit ne pas vouloir montrer votre adresse personnelle, ce qui se comprend. Une adresse au nom du domaine, du type contact suivi de lcc-espacesverts.fr, coûte quelques euros par mois et fait meilleure impression sur un devis.
+14. Sans cette adresse, le site reste joignable par téléphone et par le formulaire, ce qui satisfait la loi. Confirmez-vous que l'on s'en tient là pour l'instant ?
 
 Déjà en place : 06 41 59 80 54, du lundi au samedi de 7h30 à 19h.
 
@@ -49,7 +49,17 @@ Déjà en place : 06 41 59 80 54, du lundi au samedi de 7h30 à 19h.
 
 Deux précisions y ont été ajoutées. Vos pages sont servies depuis l'infrastructure parisienne de l'hébergeur. Et comme la société est américaine, la politique de confidentialité indique le cadre qui encadre un éventuel transfert de données hors d'Europe.
 
-15. Reste une question pour vous : sur quelle boîte e-mail souhaitez-vous recevoir les demandes de devis, et utilisez-vous un outil pour les suivre ? C'est le dernier élément manquant de la politique de confidentialité.
+15. Utilisez-vous un outil pour suivre vos devis, autre que votre boîte e-mail ? S'il en existe un, il doit être nommé dans la politique de confidentialité.
+
+---
+
+## 4 bis. Formulaire de devis, réglé mais à valider
+
+**Le formulaire n'envoyait rien jusqu'au 22 août 2026.** Il affichait « Votre demande est enregistrée » sans rien transmettre. Toutes les demandes reçues depuis la mise en ligne ont été perdues. C'est corrigé, les demandes arrivent maintenant sur votre boîte.
+
+16. Avez-vous bien reçu le message de test envoyé le 22 août, avec pour objet « Demande de devis, Taille de haies, Merignac » ? Vérifiez aussi le dossier indésirables, et marquez le message comme fiable si vous l'y trouvez.
+17. Le champ « Photo de l'arbre » est masqué pour l'instant. Le service qui achemine le formulaire ne transmet les pièces jointes que sur sa formule payante, environ 14 dollars par mois. Une photo prise au pied de l'arbre aide beaucoup pour chiffrer, souhaitez-vous cette option ?
+18. Le service qui achemine vos formulaires est établi en Inde. C'est déclaré dans la politique de confidentialité, comme la réglementation l'impose, mais ce n'est pas idéal. Le remplacer par une solution européenne représente une demi-journée de travail. Souhaitez-vous qu'on le fasse ?
 
 ---
 
@@ -171,7 +181,7 @@ Le site annonce des règles locales sur les 12 pages ville. Chaque affirmation d
 ## 13. Données personnelles et médiation
 
 55. Quelle durée de conservation retenez-vous pour les demandes sans suite, douze ou vingt-quatre mois ?
-56. Quels outils utilisez-vous, hébergeur, messagerie, gestion des devis, et où sont-ils localisés ?
+56. Réglé. L'hébergeur et le service qui achemine le formulaire sont nommés dans la politique de confidentialité, avec leur pays.
 57. Souhaitez-vous un outil de statistiques ? Cela impose une information complémentaire au visiteur.
 58. Quel médiateur de la consommation avez-vous retenu, nom et coordonnées ? Obligation légale pour les particuliers.
 
@@ -183,7 +193,7 @@ Réglé. Le domaine est `lcc-espacesverts.fr` et le site est en ligne. L'adresse
 
 Le site est ouvert aux moteurs de recherche. Google peut donc l'indexer et le faire apparaître dans ses résultats dans les jours qui viennent.
 
-**Cela rend les sections 1 à 4 urgentes.** Les mentions légales sont publiques alors qu'il y manque l'hébergeur et l'adresse e-mail, deux informations obligatoires. Un site qui vend de l'élagage sous un code d'activité de nettoyage de bâtiments est également exposé. Ces points étaient à régler avant mise en ligne, ils sont maintenant à régler au plus vite.
+**Cela rend les sections 1 et 2 urgentes.** L'hébergeur est désormais renseigné et le formulaire fonctionne. Reste qu'un site qui vend de l'élagage sous un code d'activité de nettoyage de bâtiments est exposé, et que l'assurance n'est toujours pas justifiée. Ces points étaient à régler avant mise en ligne, ils sont maintenant à régler au plus vite.
 
 ---
 
@@ -191,6 +201,6 @@ Le site est ouvert aux moteurs de recherche. Google peut donc l'indexer et le fa
 
 Si l'artisan n'a le temps de répondre qu'à une partie :
 
-1. **Le code APE, l'ancienneté, l'assureur et l'adresse e-mail.** Sans cela le site ne peut pas être mis en ligne.
+1. **Le code APE, l'ancienneté et l'assureur.** Le site est déjà en ligne, ces points sont donc en retard.
 2. **Dix chantiers détaillés avec photos avant et après.** C'est ce qui fait la différence face à un concurrent.
 3. **Note Google et trois avis repris mot pour mot.**

@@ -201,14 +201,42 @@ L'hébergeur est renseigné. Vercel Inc., société de l'État du Delaware immat
 
 Vercel ne publie pas de numéro de téléphone, alors que l'article 6 de la LCEN le demande. Les mentions légales indiquent donc les moyens de contact qui existent réellement, l'assistance en ligne et l'adresse `privacy@vercel.com`, plutôt qu'un numéro inventé. Les pages sont servies depuis l'infrastructure parisienne de l'hébergeur, vérifié dans les en-têtes de réponse.
 
+### Formulaire de devis
+
+Jusqu'au 22 août 2026, les 24 formulaires du site **n'envoyaient rien**. Le script bloquait l'envoi, vidait les champs et affichait « Votre demande est enregistrée ». Chaque demande était perdue en silence, y compris depuis la mise en ligne. Le défaut est corrigé.
+
+Les demandes passent désormais par Web3Forms, qui les relaie par courriel vers `fabnoah33@gmail.com`. Cette adresse n'apparaît nulle part sur le site, à la demande de l'entreprise. Un envoi de test a été reçu le 22 août 2026.
+
+Web3Forms est exploité par Web3Creative, établi au Kerala, en Inde. C'est le point sensible du montage, et il est détaillé plus bas.
+
+Le champ « Photo de l'arbre » est **masqué**. Web3Forms ne transmet les pièces jointes que sur son offre payante, et un champ qui perd le fichier vaut moins qu'un champ absent. La constante `PIECE_JOINTE_ACTIVE` dans `assets/js/main.js` le rétablit le jour d'un abonnement, le champ est intact dans le code des 24 pages.
+
 | Élément | Où | Bloquant |
 | --- | --- | --- |
-| Service de messagerie et outil de gestion des devis, avec localisation | Politique de confidentialité | Oui |
+| Adresse professionnelle de réception des devis, à la place de l'adresse gmail personnelle | Formulaire, mentions légales | Non |
 | Durée de conservation des demandes sans suite | Politique de confidentialité | Oui |
 | Ajout éventuel d'un outil de statistiques | Politique de confidentialité | Non |
 | Date de mise en ligne | Mentions légales, politique de confidentialité | Non |
 
 Le site ne dépose aujourd'hui **aucun cookie**. Aucun bandeau de consentement n'est donc nécessaire. Ajouter un outil de mesure d'audience changerait cette situation.
+
+### Ce que Web3Forms implique, à décider
+
+Le service fonctionne et le formulaire arrive. Mais le montage a des angles morts qu'il faut connaître, tous vérifiés dans les documents publiés par le service le 13 juillet 2026.
+
+| Point | Constat | Portée |
+| --- | --- | --- |
+| Exploitant | « Web3Creative », sans forme juridique ni adresse postale publiée. Seul rattachement contraignant, l'arbitrage à Palakkad, Kerala, Inde | L'article 28 du RGPD suppose un sous-traitant identifié. Il ne l'est qu'à moitié |
+| Pays | Inde, **sans décision d'adéquation** de la Commission européenne | Le transfert repose sur les clauses contractuelles types, et appelle en principe une analyse d'impact du transfert |
+| Représentant européen | Aucun désigné publiquement, alors que l'article 27 le prévoit pour un sous-traitant hors Union | Manque |
+| Antispam | L'adresse IP et l'adresse e-mail du visiteur partent chez CleanTalk et Akismet, aux États-Unis, à chaque envoi | Déclaré dans la politique de confidentialité |
+| Conservation | Trois ans au maximum côté prestataire | Le site l'indique. Le site annonce « 30 jours » ailleurs, information périmée, ne pas la reprendre |
+| Recours | Responsabilité plafonnée à 50 dollars, arbitrage en Inde | En pratique, aucun recours utile |
+| Quota | 250 envois par mois sur l'offre gratuite, au-delà les demandes sont rejetées | Large pour l'activité, mais à surveiller |
+
+Le contrat de sous-traitance existe bel et bien et s'applique à l'offre gratuite, ce qui vaut mieux que chez plusieurs concurrents. Le sujet n'est donc pas l'absence de contrat, c'est la difficulté à identifier le cocontractant et le pays de destination.
+
+**Alternative si ces points gênent** : une fonction serverless chez Vercel, déjà l'hébergeur et déjà déclaré, qui relaie vers un service d'envoi européen. Le formulaire ne sortirait plus de l'Union. Cela demande une adresse e-mail professionnelle, un compte chez le service d'envoi, et une demi-journée de travail.
 
 ---
 
@@ -226,14 +254,13 @@ Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la ment
 
 ## Points bloquants, résumé
 
-Le site est en ligne et ouvert à l'indexation. Ces six ensembles restent donc à régler **en urgence**, puisqu'ils sont désormais visibles du public et des moteurs de recherche.
+Le site est en ligne et ouvert à l'indexation. Ces cinq ensembles restent donc à régler **en urgence**, puisqu'ils sont désormais visibles du public et des moteurs de recherche.
 
 1. Les trois contradictions ci-dessus, en particulier le code APE.
-2. Adresse e-mail de contact.
-3. Assureur et numéro de contrat en responsabilité civile professionnelle.
-4. Durée de conservation des demandes sans suite, et outils utilisés pour recevoir les devis.
-5. Certifications et habilitations réelles de l'équipe.
-6. Photographies de vos chantiers et avis clients réels, en remplacement des illustrations et des emplacements vides.
+2. Assureur et numéro de contrat en responsabilité civile professionnelle.
+3. Durée de conservation des demandes sans suite.
+4. Certifications et habilitations réelles de l'équipe.
+5. Photographies de vos chantiers et avis clients réels, en remplacement des illustrations et des emplacements vides.
 
 ## Ce qui est déjà figé et cohérent sur les 28 pages
 
