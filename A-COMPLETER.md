@@ -103,7 +103,18 @@ Toutes les pages affichent désormais au moins une photo. Les seuls emplacements
 
 Format attendu : WebP, 1600 pixels de large pour les panoramiques, 800 pixels pour les carrés, 800 pixels de large sur 1000 de haut pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
 
-Trois réserves sur les illustrations en place, à corriger dès que vos photos arrivent. La page abattage montre un opérateur au sol sans corde de traction, alors que le texte décrit ce matériel. La page haies montre le lamier seul, sans opérateur. La page dessouchage montre la rogneuse sans opérateur.
+Réserves sur les illustrations en place, à corriger dès que vos photos arrivent.
+
+| Page | Écart entre la photo et le texte |
+| --- | --- |
+| Abattage | Opérateur au sol sans corde de traction, alors que le texte décrit ce matériel |
+| Taille de haies | Lamier seul, sans opérateur |
+| Dessouchage | Rogneuse seule, sans opérateur |
+| Évacuation | Copeaux éjectés visibles, mais pas les branches engagées dans la goulotte |
+| Zones d'intervention | Grumier chargé de rondins, pas une benne de déchets verts. Cette photo suggère un matériel plus lourd que le vôtre, c'est la première à remplacer |
+| Entreprise, bandeau équipe | Ramassage de feuilles en automne, pas un chantier d'élagage |
+
+Une seule marque subsiste, l'emblème Husqvarna sur le casque de la page débroussaillage. Il mesure une douzaine de pixels à l'affichage et désigne un fabricant d'outillage, pas un concurrent. Tous les autres logos et plaques d'immatriculation ont été écartés au recadrage ou par rejet de l'image.
 
 Une fois vos photos livrées, retirez la mention « Photo d'illustration » du balisage et remplacez les textes alternatifs, qui décrivent aujourd'hui la scène générique et non votre chantier.
 

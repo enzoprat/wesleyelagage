@@ -83,7 +83,11 @@ Sur l'accueil, la page réalisations, les 9 pages service et les 12 pages ville,
 
 Des photos de banque libres de droits ont été posées pour la présentation, sur toutes les pages. Chacune porte la mention visible « Photo d'illustration ». Aucune ne montre un chantier de l'entreprise.
 
-Trois d'entre elles ne collent pas tout à fait au texte qu'elles accompagnent, et sont donc à remplacer en priorité. Sur la page abattage, l'opérateur travaille sans corde de traction alors que le texte décrit ce matériel. Sur la page haies et sur la page dessouchage, la machine est montrée seule, sans opérateur.
+Certaines ne collent pas tout à fait au texte qu'elles accompagnent, et sont donc à remplacer en priorité.
+
+La plus gênante est celle de la page zones d'intervention : c'est un grumier chargé de rondins, qui laisse croire à un matériel de débardage plus lourd que le vôtre. Une photo de votre camion et de votre remorque la remplacerait avantageusement.
+
+Viennent ensuite la page abattage, où l'opérateur travaille sans corde de traction alors que le texte décrit ce matériel, les pages haies et dessouchage, où la machine est montrée seule sans opérateur, et le bandeau de la page entreprise, qui montre un ramassage de feuilles plutôt qu'un chantier d'élagage.
 
 20. Pouvez-vous fournir vos propres photos de chantier ?
 21. Avez-vous des paires avant et après ? C'est ce qui convainc le mieux, et cela ne peut pas être remplacé par une photo d'illustration.
