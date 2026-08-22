@@ -15,6 +15,46 @@
      ------------------------------------------------------------------ */
   var MASQUER_A_CONFIRMER = true;
 
+  /* ------------------------------------------------------------------
+     Masquage des réalisations
+
+     L'entreprise n'a pas encore fourni ses chantiers. Une galerie de
+     cadres vides dessert plus qu'elle ne montre, donc tout ce qui
+     présente des chantiers disparaît : la page réalisations et ses liens,
+     et les sections chantiers de l'accueil, des pages service et des
+     pages commune.
+
+     Passer cette constante à false le jour où les chantiers arrivent.
+     Le contenu est intact dans le code source, rien n'a été supprimé.
+     ------------------------------------------------------------------ */
+  var MASQUER_REALISATIONS = true;
+
+  if (MASQUER_REALISATIONS) {
+    // La page réalisations n'a plus de raison d'être sans ses chantiers.
+    // Elle annoncerait des filtres et des avant-après absents. Un visiteur
+    // qui arrive par un lien direct est renvoyé à l'accueil, sans passer
+    // par l'historique pour que le bouton retour reste utilisable.
+    if (/\/realisations\/$/.test(window.location.pathname)) {
+      window.location.replace("../");
+      return;
+    }
+
+    // Toute section qui contient une grille de chantiers part en entier,
+    // titre et filtres compris.
+    document.querySelectorAll(".grille-chantiers").forEach(function (grille) {
+      var section = grille.closest("section");
+      if (section) section.hidden = true;
+    });
+
+    // Puis les liens qui y mènent, sinon le menu pointerait vers une page
+    // que plus rien n'alimente. On masque le porteur du lien, pas seulement
+    // le lien, pour ne pas laisser de puce ni de séparateur orphelin.
+    document.querySelectorAll('a[href$="realisations/"]').forEach(function (lien) {
+      var porteur = lien.closest("li, p") || lien;
+      porteur.hidden = true;
+    });
+  }
+
   if (MASQUER_A_CONFIRMER) {
     // 0. Certains blocs ne tiennent que par leurs marqueurs, comme la section
     //    hébergement des mentions légales. Sans eux il resterait un titre nu

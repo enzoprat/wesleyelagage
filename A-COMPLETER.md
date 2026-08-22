@@ -7,7 +7,9 @@ Aucun chiffre, avis, certification, durée ou prix n'a été inventé.
 
 Le site tourne en mode présentation. Les 459 marqueurs restent dans le code source mais ne s'affichent plus, pour que le client voie une maquette propre.
 
-- Un seul interrupteur : `MASQUER_A_CONFIRMER` en haut de `assets/js/main.js`. Le passer à `false` réaffiche les 459 marqueurs entourés d'une pastille couleur écorce.
+- Deux interrupteurs, en haut de `assets/js/main.js`. Les deux sont indépendants et rien n'a été supprimé du code source.
+- `MASQUER_A_CONFIRMER`, à passer à `false` pour réafficher les 459 marqueurs entourés d'une pastille couleur écorce.
+- `MASQUER_REALISATIONS`, à passer à `false` le jour où les chantiers réels arrivent. Tant qu'il vaut `true`, la page réalisations renvoie vers l'accueil, les liens qui y mènent disparaissent, et les sections chantiers de l'accueil, des 9 pages service et des 12 pages ville sont masquées. Une galerie de cadres vides dessert plus qu'elle ne montre. L'entrée correspondante de `sitemap.xml` est en commentaire, à rétablir en même temps.
 - Ce qui deviendrait vide ou bancal sans sa valeur disparaît aussi : les lignes de tableau, les trois cartes d'avis et leur section entière, les sections hébergement et directeur de la publication des mentions légales.
 - Les blocs concernés portent l'attribut `data-en-attente` dans le HTML. Ils partent en entier, une phrase amputée serait pire qu'une section absente.
 - Les 28 pages sont en `noindex, nofollow` et `robots.txt` est en `Disallow: /`. **Les deux sont à rouvrir le jour de la vraie mise en ligne**, la marche à suivre figure en commentaire dans les deux fichiers.
@@ -29,6 +31,9 @@ Colonne **Bloquant** :
 | Activité de l'année | Plus de 160 interventions depuis janvier | Accueil, entreprise |
 | Prestation ajoutée | Débroussaillage et manutention | Page service, 9 menus, formulaire |
 | Logo | Emblème détouré du fichier fourni | En-tête et pied de page des 28 pages, favicon |
+| Exploitant | Cédric Larme | Mentions légales, confidentialité, données structurées |
+| Forme juridique | Entrepreneur individuel | Pied de page des 28 pages, mentions légales |
+| Immatriculation au RNE | 31 juillet 2026 | Mentions légales |
 
 Le nom de domaine `lcc-espacevert.fr` a été déduit du nouveau nom et appliqué aux balises canoniques, aux données structurées, au sitemap et à robots.txt. **Il n'a pas été fourni et doit être vérifié comme réservé avant la mise en ligne.**
 
@@ -38,12 +43,12 @@ Le nom de domaine `lcc-espacevert.fr` a été déduit du nouveau nom et appliqu�
 
 | Élément | Où | Occurrences | Bloquant |
 | --- | --- | --- | --- |
-| Forme juridique | Pied de page de chaque page, mentions légales | 28 | Oui |
-| Ville d'immatriculation au RCS | Mentions légales | 1 | Oui |
-| Capital social, le cas échéant | Mentions légales | 1 | Non |
 | Numéro de TVA intracommunautaire | Mentions légales | 1 | Non |
-| Nom du directeur de la publication | Mentions légales | 1 | Oui |
 | Médiateur de la consommation retenu | Mentions légales | 1 | Oui |
+
+Réglés par l'attestation INPI du 31 juillet 2026 : forme juridique, directeur de la publication, ville d'immatriculation. L'entreprise étant une entreprise individuelle, la ligne capital social et la mention RCS ont été retirées, elles ne s'appliquent pas.
+
+**Trois contradictions restent à lever avec l'artisan, voir la fin de ce document.**
 
 ## 2. Coordonnées
 
@@ -80,7 +85,7 @@ Les autres coordonnées sont déjà en place et identiques partout : LCC Espaces
 
 Des photographies de banque d'images libres de droits ont été posées à votre demande, pour que la maquette se présente avec de vraies images. Chacune porte la mention visible « Photo d'illustration ». **Aucune ne montre un chantier de LCC Espaces Verts.** Elles sont destinées à être remplacées par vos propres photos.
 
-Les emplacements restants sont des blocs clairs à bordure verte qui nomment la photo attendue. Ils concernent les chantiers réels, qu'une photo d'illustration ne peut pas représenter sans tromper le visiteur.
+Toutes les pages affichent désormais au moins une photo. Les seuls emplacements encore vides concernent les chantiers réels, qu'une photo d'illustration ne peut pas représenter sans tromper le visiteur. Ces emplacements sont aujourd'hui masqués avec les sections chantiers, voir la section 5.
 
 | Élément | Où | État | Bloquant |
 | --- | --- | --- | --- |
@@ -88,13 +93,17 @@ Les emplacements restants sont des blocs clairs à bordure verte qui nomment la 
 | Visuels des lignes de service dépliables | Accueil | Illustration en place | Oui |
 | Portrait vertical de la section entreprise | Accueil | Illustration en place | Oui |
 | Bandeau panoramique de chaque page service | 9 pages service | Illustration en place | Oui |
-| Bandeau panoramique de chaque page ville | 12 pages ville | À fournir | Oui |
-| Portrait du gérant en hauteur, harnais visible | Entreprise, élagage | À fournir | Oui |
-| Photo d'équipe devant le camion | Entreprise | À fournir | Non |
-| Paires avant et après pour chaque chantier | Réalisations, accueil, pages ville | À fournir | Oui |
+| Portrait du geste métier de chaque page service | 9 pages service | Illustration en place | Oui |
+| Bandeau panoramique de chaque page ville | 12 pages ville | Illustration en place | Oui |
+| Bandeau panoramique de la page zones | Zones d'intervention | Illustration en place | Oui |
+| Portrait du gérant en hauteur, harnais visible | Entreprise | Illustration en place | Oui |
+| Photo d'équipe devant le camion | Entreprise | Illustration en place | Non |
+| Paires avant et après pour chaque chantier | Réalisations, accueil, pages ville | À fournir, masqué | Oui |
 | Photos de matériel, broyeur, rogneuse, nacelle | Entreprise, pages service | À fournir | Non |
 
-Format attendu : WebP, 1600 pixels de large pour les panoramiques, 800 pixels pour les carrés, 900 pixels pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
+Format attendu : WebP, 1600 pixels de large pour les panoramiques, 800 pixels pour les carrés, 800 pixels de large sur 1000 de haut pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
+
+Trois réserves sur les illustrations en place, à corriger dès que vos photos arrivent. La page abattage montre un opérateur au sol sans corde de traction, alors que le texte décrit ce matériel. La page haies montre le lamier seul, sans opérateur. La page dessouchage montre la rogneuse sans opérateur.
 
 Une fois vos photos livrées, retirez la mention « Photo d'illustration » du balisage et remplacez les textes alternatifs, qui décrivent aujourd'hui la scène générique et non votre chantier.
 
@@ -109,7 +118,9 @@ Une fois vos photos livrées, retirez la mention « Photo d'illustration » du b
 | Modèle d'autorisation de publication | Réalisations | 1 | Non |
 | Délai réel d'intervention en urgence | Accueil, urgence, réalisations | 5 | Oui |
 
-Les intitulés de chantier actuellement en place sont des libellés génériques et crédibles. Ils devront être remplacés par les vrais chantiers, sinon la page réalisations perd sa raison d'être.
+Les intitulés de chantier actuellement en place sont des libellés génériques et crédibles. Ils devront être remplacés par les vrais chantiers.
+
+En attendant, tout ce qui présente des chantiers est masqué par `MASQUER_REALISATIONS`, y compris la page réalisations. Le contenu est intact dans le code source.
 
 ## 6. Avis clients
 
@@ -183,12 +194,24 @@ Le site ne dépose aujourd'hui **aucun cookie**. Aucun bandeau de consentement n
 
 ---
 
+## Contradictions entre l'attestation INPI et le site
+
+L'attestation du 31 juillet 2026 apporte trois informations qui ne concordent pas avec le contenu en place. **Aucune n'a été tranchée**, le site est resté en l'état sur ces points.
+
+| Sur l'attestation | Sur le site | Conséquence |
+| --- | --- | --- |
+| Code APE 8121Z, nettoyage courant des bâtiments | 28 pages d'élagage et de soins aux arbres | L'activité déclarée ne correspond pas au métier présenté |
+| Début d'activité 01/08/2026 | Élagueur depuis 2006, plus de 220 chantiers par an, plus de 160 interventions depuis janvier | Antériorité et volumes invérifiables en l'état |
+| Nom commercial LCC | LCC Espaces Verts | Le nom déposé est plus court que celui affiché |
+
+Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la mention « Données issues de la reprise des données ». L'ancienneté de 2006 est donc plausible, la date du 31/07/2026 pouvant n'être que celle de la reprise au registre national. Cela demande confirmation avant publication.
+
 ## Points bloquants, résumé
 
 Sept ensembles empêchent une mise en ligne en l'état.
 
 1. Nom de domaine réellement réservé, en remplacement de `lcc-espacevert.fr` qui a été déduit.
-2. Forme juridique.
+2. Les trois contradictions ci-dessus, en particulier le code APE.
 3. Adresse e-mail de contact.
 4. Assureur et numéro de contrat en responsabilité civile professionnelle.
 5. Certifications et habilitations réelles de l'équipe.

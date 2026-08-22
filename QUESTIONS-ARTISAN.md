@@ -8,15 +8,17 @@ Rien n'a été inventé. Aucun chiffre, avis, certification, durée ou prix ne f
 
 ---
 
-## 1. Identité légale, 29 emplacements
+## 1. Identité légale, trois contradictions à lever
 
-Bloquant. Le pied de page et les mentions légales sont incomplets sur les 28 pages.
+L'attestation INPI du 31 juillet 2026 a réglé la forme juridique, le directeur de la publication et l'immatriculation. Elle soulève en revanche trois points que **vous seul pouvez trancher**, et qui sont bloquants.
 
-1. Quelle est la forme juridique exacte, entreprise individuelle, EURL, SARL, SASU ou autre ? *(28 emplacements)*
-2. Quelle est la ville d'immatriculation au registre du commerce ?
-3. Qui est le responsable de la publication du site, nom et prénom ?
+1. **L'activité déclarée est le nettoyage courant des bâtiments, code APE 8121Z.** Le site présente vingt-huit pages d'élagage et de soins aux arbres. L'élagage relève normalement du code 8130Z, services d'aménagement paysager. Avez-vous une seconde activité déclarée, ou le code doit-il être modifié auprès du guichet des formalités ?
+2. **L'attestation indique un début d'activité au 1er août 2026.** Le site annonce « élagueur depuis 2006 », plus de 220 chantiers par an et plus de 160 interventions depuis janvier. Votre SIREN date bien de 2006 et l'attestation mentionne une reprise de données, donc l'ancienneté est plausible. Confirmez-vous les vingt années d'exercice, et sous quelle structure avant août 2026 ? D'où viennent les chiffres de 220 et 160 ?
+3. **Le nom commercial déposé est « LCC », pas « LCC Espaces Verts ».** Souhaitez-vous déclarer le nom complet, ou ajuster l'affichage du site ?
 
-Déjà en place et vérifié : SIREN 490 985 520, SIRET 490 985 520 00033, siège avenue de Bellevue à Mérignac, activité depuis 2006.
+Déjà en place et vérifié : Cédric Larme, entrepreneur individuel, SIREN 490 985 520, SIRET 490 985 520 00033, siège 1 avenue de Bellevue à Mérignac, immatriculation au registre national des entreprises le 31 juillet 2026.
+
+Restent à fournir : le numéro de TVA intracommunautaire si vous y êtes assujetti, et le médiateur de la consommation retenu.
 
 ## 2. Assurance et certifications, 47 emplacements
 
@@ -56,6 +58,8 @@ Bloquant. Obligation légale sur les mentions légales.
 
 C'est le plus gros volume. Chaque chantier montré sur le site attend les mêmes champs.
 
+En attendant vos chantiers, **tout ce qui les présente est masqué**, y compris la page réalisations. Une galerie de cadres vides dessert plus qu'elle ne montre. Rien n'a été supprimé, tout revient d'un seul réglage le jour où vous fournissez les informations ci-dessous.
+
 Sur l'accueil, la page réalisations, les 9 pages service et les 12 pages ville, il faut pour chaque chantier :
 
 | Champ | Nombre d'emplacements |
@@ -77,7 +81,9 @@ Sur l'accueil, la page réalisations, les 9 pages service et les 12 pages ville,
 
 ## 6. Photographies
 
-Des photos de banque libres de droits ont été posées pour la présentation. Chacune porte la mention visible « Photo d'illustration ». Aucune ne montre un chantier de l'entreprise.
+Des photos de banque libres de droits ont été posées pour la présentation, sur toutes les pages. Chacune porte la mention visible « Photo d'illustration ». Aucune ne montre un chantier de l'entreprise.
+
+Trois d'entre elles ne collent pas tout à fait au texte qu'elles accompagnent, et sont donc à remplacer en priorité. Sur la page abattage, l'opérateur travaille sans corde de traction alors que le texte décrit ce matériel. Sur la page haies et sur la page dessouchage, la machine est montrée seule, sans opérateur.
 
 20. Pouvez-vous fournir vos propres photos de chantier ?
 21. Avez-vous des paires avant et après ? C'est ce qui convainc le mieux, et cela ne peut pas être remplacé par une photo d'illustration.
@@ -180,6 +186,6 @@ Le site utilise `lcc-espacevert.fr` dans les balises canoniques, les données st
 
 Si l'artisan n'a le temps de répondre qu'à une partie :
 
-1. **Forme juridique, assureur, numéro de contrat, adresse e-mail.** Sans cela le site ne peut pas être mis en ligne.
+1. **Le code APE, l'ancienneté, l'assureur et l'adresse e-mail.** Sans cela le site ne peut pas être mis en ligne.
 2. **Dix chantiers détaillés avec photos avant et après.** C'est ce qui fait la différence face à un concurrent.
 3. **Note Google et trois avis repris mot pour mot.**

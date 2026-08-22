@@ -119,11 +119,15 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Page réalisations masquée tant que les chantiers réels ne sont pas
+       fournis. Rétablir cette entrée en même temps que la constante
+       MASQUER_REALISATIONS dans assets/js/main.js.
   <url>
     <loc>https://www.lcc-espacevert.fr/realisations/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
   <url>
     <loc>https://www.lcc-espacevert.fr/entreprise/</loc>
     <changefreq>yearly</changefreq>
