@@ -13,7 +13,7 @@ Le site tourne en mode présentation. Les 459 marqueurs restent dans le code sou
 - Ce qui deviendrait vide ou bancal sans sa valeur disparaît aussi : les lignes de tableau, les trois cartes d'avis et leur section entière, les sections hébergement et directeur de la publication des mentions légales.
 - Les blocs concernés portent l'attribut `data-en-attente` dans le HTML. Ils partent en entier, une phrase amputée serait pire qu'une section absente.
 - **Le site est ouvert à l'indexation** depuis le 22 août 2026, sur `www.lcc-espacesverts.fr`. Les 27 pages du sitemap sont en `index, follow` et `robots.txt` autorise les moteurs. Seule la page réalisations, qui redirige vers l'accueil, reste en `noindex`.
-- Conséquence directe : **les mentions légales sont désormais publiques et incomplètes**. Il manque l'hébergeur, obligation de l'article 6 de la LCEN, et l'adresse e-mail de contact. Le masquage des marqueurs fait disparaître ces blocs au lieu d'afficher un trou, mais l'information reste absente. Voir les sections 2 et 3.
+- Conséquence directe : **les mentions légales sont désormais publiques et incomplètes**. L'hébergeur y figure depuis le 22 août 2026, mais il manque encore l'adresse e-mail de contact et l'assureur. Le masquage des marqueurs fait disparaître ces blocs au lieu d'afficher un trou, mais l'information reste absente. Voir les sections 2 et 3.
 
 Colonne **Bloquant** :
 - **Oui** = ne peut pas être montré en l'état à un prospect ni mis en ligne.
@@ -197,12 +197,14 @@ Ces mentions décrivent des contraintes réelles mais leur périmètre exact doi
 
 ## 10. Hébergement et données personnelles
 
+L'hébergeur est renseigné. Vercel Inc., société de l'État du Delaware immatriculée sous le numéro 5857312, 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis. Ces informations sont reprises de la politique de confidentialité et du contrat de sous-traitance publiés par Vercel, deux sources concordantes.
+
+Vercel ne publie pas de numéro de téléphone, alors que l'article 6 de la LCEN le demande. Les mentions légales indiquent donc les moyens de contact qui existent réellement, l'assistance en ligne et l'adresse `privacy@vercel.com`, plutôt qu'un numéro inventé. Les pages sont servies depuis l'infrastructure parisienne de l'hébergeur, vérifié dans les en-têtes de réponse.
+
 | Élément | Où | Bloquant |
 | --- | --- | --- |
-| Raison sociale, adresse et téléphone de l'hébergeur | Mentions légales | Oui |
 | Service de messagerie et outil de gestion des devis, avec localisation | Politique de confidentialité | Oui |
 | Durée de conservation des demandes sans suite | Politique de confidentialité | Oui |
-| Mesures de sécurité en place chez l'hébergeur | Politique de confidentialité | Non |
 | Ajout éventuel d'un outil de statistiques | Politique de confidentialité | Non |
 | Date de mise en ligne | Mentions légales, politique de confidentialité | Non |
 
@@ -229,7 +231,7 @@ Le site est en ligne et ouvert à l'indexation. Ces six ensembles restent donc �
 1. Les trois contradictions ci-dessus, en particulier le code APE.
 2. Adresse e-mail de contact.
 3. Assureur et numéro de contrat en responsabilité civile professionnelle.
-4. Coordonnées de l'hébergeur dans les mentions légales, obligation légale.
+4. Durée de conservation des demandes sans suite, et outils utilisés pour recevoir les devis.
 5. Certifications et habilitations réelles de l'équipe.
 6. Photographies de vos chantiers et avis clients réels, en remplacement des illustrations et des emplacements vides.
 

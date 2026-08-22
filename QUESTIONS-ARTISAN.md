@@ -45,14 +45,11 @@ Déjà en place : 06 41 59 80 54, du lundi au samedi de 7h30 à 19h.
 
 ## 4. Hébergeur du site, 4 emplacements
 
-Bloquant. Obligation légale sur les mentions légales.
+**Réglé, rien à faire de votre côté.** L'hébergeur est Vercel Inc., et ses coordonnées officielles figurent désormais dans les mentions légales et la politique de confidentialité.
 
-L'hébergeur est désormais connu, c'est **Vercel**. Restent à reprendre depuis ses conditions officielles, sans les inventer :
+Deux précisions y ont été ajoutées. Vos pages sont servies depuis l'infrastructure parisienne de l'hébergeur. Et comme la société est américaine, la politique de confidentialité indique le cadre qui encadre un éventuel transfert de données hors d'Europe.
 
-15. La raison sociale exacte de l'entité qui héberge, et son adresse complète.
-16. Son numéro de téléphone ou, à défaut, son moyen de contact officiel.
-17. Les mesures de sécurité qu'il annonce, pour la page de confidentialité.
-18. Les données transitant hors de l'Union européenne, il faut le mentionner dans la politique de confidentialité et indiquer le cadre juridique du transfert.
+15. Reste une question pour vous : sur quelle boîte e-mail souhaitez-vous recevoir les demandes de devis, et utilisez-vous un outil pour les suivre ? C'est le dernier élément manquant de la politique de confidentialité.
 
 ---
 
