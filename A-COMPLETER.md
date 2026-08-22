@@ -35,7 +35,7 @@ Colonne **Bloquant** :
 | Forme juridique | Entrepreneur individuel | Pied de page des 28 pages, mentions légales |
 | Immatriculation au RNE | 31 juillet 2026 | Mentions légales |
 
-Le nom de domaine `lcc-espacevert.fr` a été déduit du nouveau nom et appliqué aux balises canoniques, aux données structurées, au sitemap et à robots.txt. **Il n'a pas été fourni et doit être vérifié comme réservé avant la mise en ligne.**
+Le nom de domaine est `lcc-espacesverts.fr`, confirmé et en ligne. Le site est hébergé chez Vercel, qui redirige l'apex vers `www.lcc-espacesverts.fr`. C'est cette forme avec `www` qui sert de référence dans les balises canoniques, les données structurées, le sitemap et robots.txt.
 
 ---
 
@@ -223,15 +223,14 @@ Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la ment
 
 ## Points bloquants, résumé
 
-Sept ensembles empêchent une mise en ligne en l'état.
+Six ensembles empêchent l'ouverture à l'indexation. Le site est déjà en ligne sur son domaine, mais en `noindex`, donc invisible dans les moteurs de recherche tant que ces points ne sont pas réglés.
 
-1. Nom de domaine réellement réservé, en remplacement de `lcc-espacevert.fr` qui a été déduit.
-2. Les trois contradictions ci-dessus, en particulier le code APE.
-3. Adresse e-mail de contact.
-4. Assureur et numéro de contrat en responsabilité civile professionnelle.
+1. Les trois contradictions ci-dessus, en particulier le code APE.
+2. Adresse e-mail de contact.
+3. Assureur et numéro de contrat en responsabilité civile professionnelle.
+4. Coordonnées de l'hébergeur dans les mentions légales, obligation légale.
 5. Certifications et habilitations réelles de l'équipe.
-6. Photographies de vos chantiers, avant et après, avec accord des propriétaires, en remplacement des photos d'illustration.
-7. Avis clients réels, repris mot pour mot depuis la fiche Google Business, et coordonnées de l'hébergeur.
+6. Photographies de vos chantiers et avis clients réels, en remplacement des illustrations et des emplacements vides.
 
 ## Ce qui est déjà figé et cohérent sur les 28 pages
 

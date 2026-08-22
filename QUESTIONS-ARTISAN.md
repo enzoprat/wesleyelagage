@@ -47,10 +47,12 @@ Déjà en place : 06 41 59 80 54, du lundi au samedi de 7h30 à 19h.
 
 Bloquant. Obligation légale sur les mentions légales.
 
-15. Quelle est la raison sociale de l'hébergeur ?
-16. Quelle est son adresse complète ?
-17. Quel est son numéro de téléphone ?
-18. Quelles mesures de sécurité sont en place chez lui, pour la page de confidentialité ?
+L'hébergeur est désormais connu, c'est **Vercel**. Restent à reprendre depuis ses conditions officielles, sans les inventer :
+
+15. La raison sociale exacte de l'entité qui héberge, et son adresse complète.
+16. Son numéro de téléphone ou, à défaut, son moyen de contact officiel.
+17. Les mesures de sécurité qu'il annonce, pour la page de confidentialité.
+18. Les données transitant hors de l'Union européenne, il faut le mentionner dans la politique de confidentialité et indiquer le cadre juridique du transfert.
 
 ---
 
@@ -180,9 +182,9 @@ Le site annonce des règles locales sur les 12 pages ville. Chaque affirmation d
 
 ## Nom de domaine
 
-Le site utilise `lcc-espacevert.fr` dans les balises canoniques, les données structurées, le sitemap et robots.txt. **Ce nom a été déduit, il n'a pas été fourni.**
+Réglé. Le domaine est `lcc-espacesverts.fr` et le site est en ligne. L'adresse de référence est `www.lcc-espacesverts.fr`, l'adresse sans `www` y redirige automatiquement.
 
-59. Ce domaine est-il réservé ? Sinon, lequel utiliser ?
+Le site reste en `noindex` : il est accessible à qui connaît l'adresse, mais n'apparaît pas dans les résultats de recherche. C'est volontaire tant que les mentions légales sont incomplètes.
 
 ---
 
