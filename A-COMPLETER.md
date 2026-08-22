@@ -113,6 +113,10 @@ Réserves sur les illustrations en place, à corriger dès que vos photos arrive
 | Évacuation | Copeaux éjectés visibles, mais pas les branches engagées dans la goulotte |
 | Zones d'intervention | Grumier chargé de rondins, pas une benne de déchets verts. Cette photo suggère un matériel plus lourd que le vôtre, c'est la première à remplacer |
 | Entreprise, bandeau équipe | Ramassage de feuilles en automne, pas un chantier d'élagage |
+| Bruges, Eysines | Arbres en repos végétatif, sans feuilles |
+| Pessac, Saint-Médard | Pins sylvestres et non maritimes, silhouette proche mais essence différente |
+
+Les textes alternatifs des 12 bandeaux ville décrivent la scène réellement photographiée, sans nommer d'essence non vérifiée ni de lieu. Ils sont à réécrire avec la commune et l'essence exactes le jour où vos photos les remplacent.
 
 Une seule marque subsiste, l'emblème Husqvarna sur le casque de la page débroussaillage. Il mesure une douzaine de pixels à l'affichage et désigne un fabricant d'outillage, pas un concurrent. Tous les autres logos et plaques d'immatriculation ont été écartés au recadrage ou par rejet de l'image.
 
