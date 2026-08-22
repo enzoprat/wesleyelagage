@@ -12,7 +12,8 @@ Le site tourne en mode présentation. Les 459 marqueurs restent dans le code sou
 - `MASQUER_REALISATIONS`, à passer à `false` le jour où les chantiers réels arrivent. Tant qu'il vaut `true`, la page réalisations renvoie vers l'accueil, les liens qui y mènent disparaissent, et les sections chantiers de l'accueil, des 9 pages service et des 12 pages ville sont masquées. Une galerie de cadres vides dessert plus qu'elle ne montre. L'entrée correspondante de `sitemap.xml` est en commentaire, à rétablir en même temps.
 - Ce qui deviendrait vide ou bancal sans sa valeur disparaît aussi : les lignes de tableau, les trois cartes d'avis et leur section entière, les sections hébergement et directeur de la publication des mentions légales.
 - Les blocs concernés portent l'attribut `data-en-attente` dans le HTML. Ils partent en entier, une phrase amputée serait pire qu'une section absente.
-- Les 28 pages sont en `noindex, nofollow` et `robots.txt` est en `Disallow: /`. **Les deux sont à rouvrir le jour de la vraie mise en ligne**, la marche à suivre figure en commentaire dans les deux fichiers.
+- **Le site est ouvert à l'indexation** depuis le 22 août 2026, sur `www.lcc-espacesverts.fr`. Les 27 pages du sitemap sont en `index, follow` et `robots.txt` autorise les moteurs. Seule la page réalisations, qui redirige vers l'accueil, reste en `noindex`.
+- Conséquence directe : **les mentions légales sont désormais publiques et incomplètes**. Il manque l'hébergeur, obligation de l'article 6 de la LCEN, et l'adresse e-mail de contact. Le masquage des marqueurs fait disparaître ces blocs au lieu d'afficher un trou, mais l'information reste absente. Voir les sections 2 et 3.
 
 Colonne **Bloquant** :
 - **Oui** = ne peut pas être montré en l'état à un prospect ni mis en ligne.
@@ -223,7 +224,7 @@ Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la ment
 
 ## Points bloquants, résumé
 
-Six ensembles empêchent l'ouverture à l'indexation. Le site est déjà en ligne sur son domaine, mais en `noindex`, donc invisible dans les moteurs de recherche tant que ces points ne sont pas réglés.
+Le site est en ligne et ouvert à l'indexation. Ces six ensembles restent donc à régler **en urgence**, puisqu'ils sont désormais visibles du public et des moteurs de recherche.
 
 1. Les trois contradictions ci-dessus, en particulier le code APE.
 2. Adresse e-mail de contact.

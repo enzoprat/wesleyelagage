@@ -184,7 +184,9 @@ Le site annonce des règles locales sur les 12 pages ville. Chaque affirmation d
 
 Réglé. Le domaine est `lcc-espacesverts.fr` et le site est en ligne. L'adresse de référence est `www.lcc-espacesverts.fr`, l'adresse sans `www` y redirige automatiquement.
 
-Le site reste en `noindex` : il est accessible à qui connaît l'adresse, mais n'apparaît pas dans les résultats de recherche. C'est volontaire tant que les mentions légales sont incomplètes.
+Le site est ouvert aux moteurs de recherche. Google peut donc l'indexer et le faire apparaître dans ses résultats dans les jours qui viennent.
+
+**Cela rend les sections 1 à 4 urgentes.** Les mentions légales sont publiques alors qu'il y manque l'hébergeur et l'adresse e-mail, deux informations obligatoires. Un site qui vend de l'élagage sous un code d'activité de nettoyage de bâtiments est également exposé. Ces points étaient à régler avant mise en ligne, ils sont maintenant à régler au plus vite.
 
 ---
 
