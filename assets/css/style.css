@@ -963,6 +963,22 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 .chantier__media { position: relative; }
 .chantier__paire { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
 .chantier__paire .a-fournir { border-radius: 0; aspect-ratio: 1 / 1; padding: 16px 12px; }
+.chantier__paire .visuel { border-radius: 0; aspect-ratio: 1 / 1; }
+
+/* Repère avant ou après, posé sur la photo du chantier. */
+.visuel__etiquette {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 2;
+  padding: 4px 13px;
+  border-radius: var(--r-pill);
+  background: rgba(20, 49, 31, 0.78);
+  color: var(--blanc);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
 .chantier__corps { padding: 20px 22px 24px; }
 .chantier__commune {
   font-size: 0.78rem;

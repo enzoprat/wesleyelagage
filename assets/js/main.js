@@ -16,18 +16,41 @@
   var MASQUER_A_CONFIRMER = true;
 
   /* ------------------------------------------------------------------
-     Masquage des réalisations
+     Chantiers réels seulement
 
-     L'entreprise n'a pas encore fourni ses chantiers. Une galerie de
-     cadres vides dessert plus qu'elle ne montre, donc tout ce qui
-     présente des chantiers disparaît : la page réalisations et ses liens,
-     et les sections chantiers de l'accueil, des pages service et des
-     pages commune.
+     La galerie compte plus d'emplacements que l'entreprise n'a fourni de
+     chantiers. Plutôt qu'une constante à basculer à la main, chaque fiche
+     est jugée sur pièce : celle qui porte encore un bloc « photo à
+     fournir » n'a rien à montrer et disparaît.
 
-     Passer cette constante à false le jour où les chantiers arrivent.
-     Le contenu est intact dans le code source, rien n'a été supprimé.
+     Ajouter les photos d'un emplacement suffit donc à le publier, sans
+     toucher au script. Rien n'est supprimé du code source.
      ------------------------------------------------------------------ */
-  var MASQUER_REALISATIONS = true;
+  document.querySelectorAll(".chantier").forEach(function (chantier) {
+    if (chantier.querySelector(".a-fournir")) chantier.hidden = true;
+  });
+
+  // Une grille dont tous les chantiers sont masqués emporte sa section,
+  // titre et filtres compris, sinon il resterait un intertitre sans suite.
+  document.querySelectorAll(".grille-chantiers").forEach(function (grille) {
+    if (grille.querySelector(".chantier:not([hidden])")) return;
+    var section = grille.closest("section");
+    if (section) section.hidden = true;
+  });
+
+  // Puis les filtres qui ne mènent à rien. Un bouton « abattage » sans
+  // chantier d'abattage ne renverrait qu'une grille vide.
+  document.querySelectorAll("[data-filtres]").forEach(function (zone) {
+    var visibles = zone.parentNode.querySelectorAll(".chantier:not([hidden])");
+    zone.querySelectorAll("[data-filtre]").forEach(function (bouton) {
+      var choix = bouton.getAttribute("data-filtre");
+      if (choix === "tout") return;
+      var trouve = Array.prototype.some.call(visibles, function (chantier) {
+        return (chantier.getAttribute("data-chantier") || "").split(" ").indexOf(choix) !== -1;
+      });
+      if (!trouve) bouton.hidden = true;
+    });
+  });
 
   /* ------------------------------------------------------------------
      Envoi des demandes de devis
@@ -52,32 +75,6 @@
      intact dans le code des 24 formulaires, rien n'a été supprimé.
      ------------------------------------------------------------------ */
   var PIECE_JOINTE_ACTIVE = false;
-
-  if (MASQUER_REALISATIONS) {
-    // La page réalisations n'a plus de raison d'être sans ses chantiers.
-    // Elle annoncerait des filtres et des avant-après absents. Un visiteur
-    // qui arrive par un lien direct est renvoyé à l'accueil, sans passer
-    // par l'historique pour que le bouton retour reste utilisable.
-    if (/\/realisations\/$/.test(window.location.pathname)) {
-      window.location.replace("../");
-      return;
-    }
-
-    // Toute section qui contient une grille de chantiers part en entier,
-    // titre et filtres compris.
-    document.querySelectorAll(".grille-chantiers").forEach(function (grille) {
-      var section = grille.closest("section");
-      if (section) section.hidden = true;
-    });
-
-    // Puis les liens qui y mènent, sinon le menu pointerait vers une page
-    // que plus rien n'alimente. On masque le porteur du lien, pas seulement
-    // le lien, pour ne pas laisser de puce ni de séparateur orphelin.
-    document.querySelectorAll('a[href$="realisations/"]').forEach(function (lien) {
-      var porteur = lien.closest("li, p") || lien;
-      porteur.hidden = true;
-    });
-  }
 
   if (MASQUER_A_CONFIRMER) {
     // 0. Certains blocs ne tiennent que par leurs marqueurs, comme la section

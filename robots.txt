@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# La page réalisations redirige vers l'accueil tant que les chantiers réels
-# ne sont pas fournis. Elle porte une balise noindex et reste hors sitemap.
-# Les deux sont à rétablir en même temps que MASQUER_REALISATIONS.
-
 Sitemap: https://www.lcc-espacesverts.fr/sitemap.xml

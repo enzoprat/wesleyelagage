@@ -9,10 +9,10 @@ Le site tourne en mode présentation. Les 459 marqueurs restent dans le code sou
 
 - Deux interrupteurs, en haut de `assets/js/main.js`. Les deux sont indépendants et rien n'a été supprimé du code source.
 - `MASQUER_A_CONFIRMER`, à passer à `false` pour réafficher les 459 marqueurs entourés d'une pastille couleur écorce.
-- `MASQUER_REALISATIONS`, à passer à `false` le jour où les chantiers réels arrivent. Tant qu'il vaut `true`, la page réalisations renvoie vers l'accueil, les liens qui y mènent disparaissent, et les sections chantiers de l'accueil, des 9 pages service et des 12 pages ville sont masquées. Une galerie de cadres vides dessert plus qu'elle ne montre. L'entrée correspondante de `sitemap.xml` est en commentaire, à rétablir en même temps.
+- L'interrupteur `MASQUER_REALISATIONS` a disparu le 29 août 2026, remplacé par une règle qui se vérifie toute seule : une fiche chantier encore dépourvue de photo est masquée, une grille dont toutes les fiches sont masquées emporte sa section, et un filtre sans chantier correspondant disparaît. Poser les photos d'un emplacement suffit donc à le publier, sans toucher au script.
 - Ce qui deviendrait vide ou bancal sans sa valeur disparaît aussi : les lignes de tableau, les trois cartes d'avis et leur section entière, les sections hébergement et directeur de la publication des mentions légales.
 - Les blocs concernés portent l'attribut `data-en-attente` dans le HTML. Ils partent en entier, une phrase amputée serait pire qu'une section absente.
-- **Le site est ouvert à l'indexation** depuis le 22 août 2026, sur `www.lcc-espacesverts.fr`. Les 27 pages du sitemap sont en `index, follow` et `robots.txt` autorise les moteurs. Seule la page réalisations, qui redirige vers l'accueil, reste en `noindex`.
+- **Le site est ouvert à l'indexation** depuis le 22 août 2026, sur `www.lcc-espacesverts.fr`. Les 28 pages du sitemap sont en `index, follow` et `robots.txt` autorise les moteurs. La page réalisations a rejoint l'index le 29 août 2026, dès qu'elle a eu de vrais chantiers à montrer.
 - Conséquence directe : **les mentions légales sont désormais publiques et incomplètes**. L'hébergeur y figure depuis le 22 août 2026, mais il manque encore l'adresse e-mail de contact et l'assureur. Le masquage des marqueurs fait disparaître ces blocs au lieu d'afficher un trou, mais l'information reste absente. Voir les sections 2 et 3.
 
 Colonne **Bloquant** :
@@ -86,7 +86,7 @@ Les autres coordonnées sont déjà en place et identiques partout : LCC Espaces
 
 Des photographies de banque d'images libres de droits ont été posées à votre demande, pour que la maquette se présente avec de vraies images. Chacune porte la mention visible « Photo d'illustration ». **Aucune ne montre un chantier de LCC Espaces Verts.** Elles sont destinées à être remplacées par vos propres photos.
 
-Toutes les pages affichent désormais au moins une photo. Les seuls emplacements encore vides concernent les chantiers réels, qu'une photo d'illustration ne peut pas représenter sans tromper le visiteur. Ces emplacements sont aujourd'hui masqués avec les sections chantiers, voir la section 5.
+Toutes les pages affichent désormais au moins une photo. Les emplacements encore vides concernent les chantiers réels, qu'une photo d'illustration ne peut pas représenter sans tromper le visiteur. Six photos de vos chantiers sont arrivées le 29 août 2026 et occupent trois fiches, voir la section 5. Les autres emplacements restent masqués.
 
 | Élément | Où | État | Bloquant |
 | --- | --- | --- | --- |
@@ -99,7 +99,7 @@ Toutes les pages affichent désormais au moins une photo. Les seuls emplacements
 | Bandeau panoramique de la page zones | Zones d'intervention | Illustration en place | Oui |
 | Portrait du gérant en hauteur, harnais visible | Entreprise | Illustration en place | Oui |
 | Photo d'équipe devant le camion | Entreprise | Illustration en place | Non |
-| Paires avant et après pour chaque chantier | Réalisations, accueil, pages ville | À fournir, masqué | Oui |
+| Paires avant et après pour chaque chantier | Réalisations, accueil, pages ville | 3 fiches sur 9 servies, le reste masqué | Oui |
 | Photos de matériel, broyeur, rogneuse, nacelle | Entreprise, pages service | À fournir | Non |
 
 Format attendu : WebP, 1600 pixels de large pour les panoramiques, 800 pixels pour les carrés, 800 pixels de large sur 1000 de haut pour les portraits, moins de 300 Ko par fichier. Prévoir un texte alternatif décrivant l'essence, le geste et la commune.
@@ -134,9 +134,25 @@ Une fois vos photos livrées, retirez la mention « Photo d'illustration » du b
 | Modèle d'autorisation de publication | Réalisations | 1 | Non |
 | Délai réel d'intervention en urgence | Accueil, urgence, réalisations | 5 | Oui |
 
-Les intitulés de chantier actuellement en place sont des libellés génériques et crédibles. Ils devront être remplacés par les vrais chantiers.
+### Trois chantiers réels, publiés le 29 août 2026
 
-En attendant, tout ce qui présente des chantiers est masqué par `MASQUER_REALISATIONS`, y compris la page réalisations. Le contenu est intact dans le code source.
+L'entreprise a fourni six photos, montées en trois fiches sur la page réalisations.
+
+| Fiche | Commune | Photos | Nature |
+| --- | --- | --- | --- |
+| Arbre gagné par le lierre, en fond de parcelle | Le Bouscat | 2 | Deux vues du chantier, **pas un avant après**, les deux images sont prises pendant l'intervention |
+| Haie de jardin reprise sur toute sa longueur | Ambarès-et-Lagrave | 2 | Avant et après francs, même point de vue |
+| Taille d'une haie de grande hauteur au bord d'un bassin | **commune manquante** | 2 | Avant et après, le lieu-dit fourni est « La Traîne » |
+
+Trois points restent ouverts sur ces fiches.
+
+1. **La commune du chantier dit de La Traîne.** Le marqueur est en place, la ligne ne s'affiche donc pas. La fiche paraît sans commune, ce qui l'affaiblit face aux deux autres.
+2. **L'accord écrit des trois propriétaires.** Les jardins sont reconnaissables, et la page promet elle-même que rien n'est publié sans l'accord du propriétaire. À obtenir sans délai, le site est en ligne.
+3. **Essence, hauteur et durée retirées** de ces trois fiches à la demande de l'entreprise. Les six emplacements encore vides les conservent, ils resurgiraient si on les remplissait.
+
+Ambarès-et-Lagrave appartient à Bordeaux Métropole sans avoir de page dédiée. La fiche illustre donc ce que la page zones annonce déjà, elle ne la contredit pas.
+
+Les six autres emplacements gardent des intitulés génériques et crédibles, et restent masqués faute de photos.
 
 ## 6. Avis clients
 
