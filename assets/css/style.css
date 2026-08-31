@@ -42,6 +42,10 @@
   /* Ambre, unique accent chaud. Tiré de l'écorce, il casse le tout vert
      et sert les libellés techniques, les états et les seconds recours. */
   --ambre: #C07A33;
+  /* Variante assombrie, réservée au texte sur fond clair. L'ambre de base
+     ne donne que 3,46 de contraste sur blanc, sous le seuil de 4,5. Celle-ci
+     tient 5,3 sur blanc et 4,8 sur le sable. */
+  --ambre-texte: #9A5C24;
   --ambre-vif: #DD9A4E;
   --ambre-voile: #F4E4D1;
   --ambre-nuit: rgba(192, 122, 51, 0.16);
@@ -210,9 +214,10 @@ strong { font-weight: 600; }
   font-family: var(--police-mono);
   font-size: var(--t-label);
   letter-spacing: var(--ls-label);
-  color: var(--ecorce);
+  color: var(--ambre-texte);
   font-weight: 500;
 }
+.section--sapin .tech, .heros .tech, .bande-immersive .tech { color: var(--ambre-vif); }
 
 :focus-visible {
   outline: 2px solid var(--ambre);
@@ -273,9 +278,7 @@ strong { font-weight: 600; }
    page du registre marketing vers celui de la fiche technique, et il se
    reconnaît d'une section à l'autre sans jamais crier. */
 .surtitre {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
   font-family: var(--police-mono);
   font-size: var(--t-label);
   font-weight: 500;
@@ -283,15 +286,6 @@ strong { font-weight: 600; }
   color: var(--ecorce);
   margin-bottom: 18px;
 }
-.surtitre::before {
-  content: "";
-  width: 22px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.55;
-  flex: none;
-}
-.entete-section--centre .surtitre { justify-content: center; }
 .section--sapin .surtitre { color: var(--ambre-vif); }
 
 /* Filet de séparation. L'ancien mêlait un trait et une pastille pleine,
@@ -746,7 +740,6 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   margin-inline: auto;
   margin-bottom: 30px;
 }
-.premier-ecran .surtitre { justify-content: center; }
 .premier-ecran .groupe-boutons { justify-content: center; }
 
 @media (min-width: 768px) {
@@ -856,7 +849,9 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 26, 17, 0.55), transparent 46%);
+  background: linear-gradient(to top, rgba(10, 26, 17, 0.82) 0%,
+                                      rgba(10, 26, 17, 0.45) 26%,
+                                      transparent 52%);
 }
 @media (max-width: 899px) {
   /* Sur mobile la photo prend toute la largeur de l'écran, sans gouttière.
@@ -1077,7 +1072,7 @@ a:hover > .visuel img,
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: var(--ambre);
+  color: var(--ambre-texte);
   grid-row: 1;
   transition: color var(--transition);
 }
@@ -1283,8 +1278,8 @@ a:hover > .visuel img,
 }
 .filtre:hover { border-color: var(--mousse); color: var(--mousse-profond); }
 .filtre[aria-pressed="true"] {
-  background: var(--mousse);
-  border-color: var(--mousse);
+  background: var(--mousse-profond);
+  border-color: var(--mousse-profond);
   color: var(--blanc);
   font-weight: 600;
 }
@@ -2045,7 +2040,9 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
 @media (min-width: 940px) {
   .demo { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); gap: 56px; }
 }
-.demo__texte h2 { color: var(--blanc); }
+/* Le blanc n'est juste que sur fond sombre. Sur les autres surfaces le
+   titre reprend la couleur normale, sinon il disparait dans le fond. */
+.section--sapin .demo__texte h2 { color: var(--blanc); }
 .demo__media { margin: 0; }
 .demo__texte .groupe-boutons { margin-top: 28px; }
 
@@ -2060,8 +2057,7 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
    la barre d'appel fixe doit rendre sa hauteur au bas de page.
    -------------------------------------------------------------------------- */
 @media (max-width: 599px) {
-  .surtitre { letter-spacing: 0.06em; font-size: 0.7rem; gap: 8px; }
-  .surtitre::before { width: 16px; }
+  .surtitre { letter-spacing: 0.06em; font-size: 0.7rem; }
   .heros__chapeau { max-width: none; }
   .heros__grille { padding-block: 34px 0; }
   .comparateur__poignee { width: 46px; height: 46px; }
@@ -2109,12 +2105,18 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, rgba(10, 26, 17, 0.86) 6%,
-                                      rgba(10, 26, 17, 0.30) 52%,
-                                      rgba(10, 26, 17, 0.10) 100%);
+  background: linear-gradient(to top, rgba(10, 26, 17, 0.92) 0%,
+                                      rgba(10, 26, 17, 0.88) 50%,
+                                      rgba(10, 26, 17, 0.50) 80%,
+                                      rgba(10, 26, 17, 0.14) 100%);
 }
 .bande-immersive__texte { padding-bottom: 44px; }
-.bande-immersive__texte .tech { color: var(--ambre-vif); display: block; margin-bottom: 12px; }
+.bande-immersive__texte .tech {
+  color: var(--ambre-vif);
+  display: block;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 10px rgba(10, 26, 17, 0.9);
+}
 .bande-immersive__texte p {
   font-family: var(--police-titre);
   font-size: clamp(1.25rem, 2.6vw, 1.95rem);
@@ -2124,5 +2126,6 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
   color: var(--blanc);
   max-width: 22ch;
   margin: 0;
+  text-shadow: 0 1px 14px rgba(10, 26, 17, 0.85);
 }
 .bande-immersive__mention { right: 14px; bottom: 14px; }
