@@ -11,48 +11,123 @@
 
 /* --------------------------------------------------------------------------
    1. Variables
+
+   Direction artistique : un arboriste, pas un jardinier. Le métier est
+   vertical, technique et risqué. La page doit donc respirer la maîtrise,
+   pas la douceur végétale. D'où le vert profond en fond des moments forts,
+   l'ambre chaud emprunté à l'écorce comme seul accent, et les libellés
+   techniques en chasse fixe, comme sur une fiche de chantier.
    -------------------------------------------------------------------------- */
 :root {
-  /* Palette imposée */
+  /* Socle de marque, inchangé */
   --sable: #F7F6F1;
   --blanc: #FFFFFF;
   --sapin: #14311F;
   --mousse: #5C8A3C;
   --ecorce: #7A5537;
 
-  /* Dérivés de lisibilité */
-  --encre: #1B2A20;
-  --encre-douce: #56635B;
+  /* Fonds profonds. Le sapin seul ne suffisait pas : sans un ton plus
+     sombre en dessous, impossible de poser une surface sur une autre. */
+  --nuit: #0A1A11;
+  --sapin-clair: #1D4429;
+  --sapin-surface: #21492E;
+
+  /* Verts de travail. Le mousse d'origine vibrait sur le sable, il est
+     assombri pour le texte et les aplats, éclairci pour le fond sombre. */
+  --mousse-profond: #47702F;
+  --mousse-vif: #7FB255;
+  --mousse-voile: #EDF2E6;
+  --mousse-brume: #DDE8D2;
+
+  /* Ambre, unique accent chaud. Tiré de l'écorce, il casse le tout vert
+     et sert les libellés techniques, les états et les seconds recours. */
+  --ambre: #C07A33;
+  --ambre-vif: #DD9A4E;
+  --ambre-voile: #F4E4D1;
+  --ambre-nuit: rgba(192, 122, 51, 0.16);
+
+  /* Encres */
+  --encre: #16241B;
+  --encre-douce: #55635A;
+  --encre-tenue: #7C8880;
+
+  /* Surfaces claires, trois niveaux pour éviter le blanc partout */
+  --surface: #FFFFFF;
+  --surface-creuse: #F2F1EA;
+  --surface-tiede: #F6F1E9;
+
+  /* Traits */
   --trait: #E3E0D6;
   --trait-fort: #D2CEC0;
-  --mousse-sombre: #4A7130;
-  --mousse-voile: #EDF2E6;
+  --trait-net: #C3BFAF;
+
+  /* Sur fond sombre */
   --sur-sapin: #E8EDE6;
-  --sur-sapin-doux: rgba(232, 237, 230, 0.72);
-  --sapin-ligne: rgba(232, 237, 230, 0.18);
+  --sur-sapin-doux: rgba(232, 237, 230, 0.70);
+  --sur-sapin-tenu: rgba(232, 237, 230, 0.45);
+  --sapin-ligne: rgba(232, 237, 230, 0.16);
+  --sapin-ligne-forte: rgba(232, 237, 230, 0.30);
 
-  /* Formes : signature du site */
+  /* Typographie. La pile système donne le rendu SF Pro sur Apple, Segoe
+     sur Windows. Une police de moins à télécharger que l'ancien Inter. */
+  --police-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+               system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --police-titre: "Bitter", Georgia, "Times New Roman", serif;
+  --police-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+                 "Cascadia Mono", "Roboto Mono", monospace;
+
+  /* Échelle typographique fluide */
+  --t-geant: clamp(2.35rem, 4.4vw, 3.55rem);
+  --t-display: clamp(2.3rem, 5vw, 3.9rem);
+  --t-h2: clamp(1.8rem, 3.3vw, 2.7rem);
+  --t-h3: clamp(1.12rem, 1.7vw, 1.42rem);
+  --t-chapeau: clamp(1.05rem, 1.5vw, 1.24rem);
+  --t-corps: 1rem;
+  --t-petit: 0.875rem;
+  --t-label: 0.75rem;
+
+  /* Interlettrage. Les grandes tailles se resserrent, les petits
+     libellés s'écartent. C'est ce qui sépare une vraie composition
+     d'un simple choix de police. */
+  --ls-geant: -0.035em;
+  --ls-display: -0.025em;
+  --ls-h2: -0.015em;
+  --ls-label: 0.1em;
+
+  /* Espacement */
+  --e1: 4px;  --e2: 8px;  --e3: 14px; --e4: 22px;
+  --e5: 34px; --e6: 52px; --e7: 76px; --e8: 108px;
+
+  /* Rayons pensés par intention. La photo reste presque vive, le panneau
+     s'arrondit peu, seul le bouton garde la pilule pleine, qui est la
+     vraie signature de la marque. */
+  --r-photo: 4px;
+  --r-champ: 12px;
+  --r-carte: 16px;
+  --r-panneau: 26px;
   --r-pill: 999px;
-  --r-carte: 24px;
-  --r-champ: 16px;
 
-  /* Ombres très douces et larges */
-  --ombre: 0 18px 44px -26px rgba(20, 49, 31, 0.35);
-  --ombre-flottante: 0 22px 60px -30px rgba(20, 49, 31, 0.45);
+  /* Ombres. Une portée large et douce, une plus courte pour le survol. */
+  --ombre: 0 18px 44px -26px rgba(10, 26, 17, 0.34);
+  --ombre-flottante: 0 26px 58px -28px rgba(10, 26, 17, 0.48);
+  --ombre-nette: 0 2px 10px -4px rgba(10, 26, 17, 0.22);
 
   /* Rythme */
   --largeur: 1200px;
+  --largeur-etroite: 700px;
+  --largeur-large: 1380px;
   --gouttiere: 20px;
-  --section-y: 64px;
+  --section-y: 68px;
 
   --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-lente: 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 @media (min-width: 768px) {
-  :root { --gouttiere: 32px; --section-y: 88px; }
+  :root { --gouttiere: 32px; --section-y: 96px; }
 }
 @media (min-width: 1100px) {
-  :root { --section-y: 104px; }
+  :root { --section-y: 118px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -78,46 +153,74 @@ body {
   margin: 0;
   background: var(--sable);
   color: var(--encre);
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--police-ui);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
 }
 
 img, svg, video { max-width: 100%; height: auto; display: block; }
 
+/* Les titres sont en serif, mais leur poids vient surtout du resserrement
+   de l'interlettrage aux grandes tailles. Un titre large et lâche paraît
+   toujours mou, quelle que soit la police. */
 h1, h2, h3, h4 {
-  font-family: "Bitter", Georgia, "Times New Roman", serif;
+  font-family: var(--police-titre);
   font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
   color: var(--sapin);
   margin: 0 0 0.5em;
   text-transform: none;
+  text-wrap: balance;
 }
 
-h1 { font-size: clamp(2rem, 6.4vw, 3.3rem); }
-h2 { font-size: clamp(1.65rem, 4.2vw, 2.45rem); }
-h3 { font-size: clamp(1.2rem, 2.6vw, 1.55rem); }
-h4 { font-size: 1.05rem; }
+h1 { font-size: var(--t-display); letter-spacing: var(--ls-display); }
+h2 { font-size: var(--t-h2); letter-spacing: var(--ls-h2); line-height: 1.14; }
+h3 { font-size: var(--t-h3); letter-spacing: -0.008em; line-height: 1.28; }
+h4 { font-size: 1.02rem; line-height: 1.35; }
 
-p { margin: 0 0 1.1em; }
+p { margin: 0 0 1.05em; }
 p:last-child { margin-bottom: 0; }
 
-a { color: var(--mousse-sombre); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+/* Une colonne de texte trop large fatigue. Les paragraphes courants sont
+   bornés, ceux qui doivent occuper une grille s'en affranchissent. */
+p, li { max-width: 68ch; }
+.sans-mesure p, .sans-mesure li, td p, th p { max-width: none; }
+
+a { color: var(--mousse-profond); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--sapin); }
 
-ul, ol { margin: 0 0 1.1em; padding-left: 1.2em; }
-li { margin-bottom: 0.4em; }
+ul, ol { margin: 0 0 1.05em; padding-left: 1.2em; }
+li { margin-bottom: 0.38em; }
 
 strong { font-weight: 600; }
 
+/* Chiffres alignés et de largeur fixe partout où ils comptent, sinon les
+   colonnes de mesures dansent d'une ligne à l'autre. */
+.chiffre, .mesure, table td, table th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Libellé technique. C'est la signature typographique du site : la chasse
+   fixe évoque la fiche de chantier plutôt que la page marketing. */
+.tech {
+  font-family: var(--police-mono);
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  color: var(--ecorce);
+  font-weight: 500;
+}
+
 :focus-visible {
-  outline: 3px solid var(--mousse);
+  outline: 2px solid var(--ambre);
   outline-offset: 3px;
   border-radius: 4px;
 }
+.section--sapin :focus-visible,
+.premier-ecran :focus-visible { outline-color: var(--ambre-vif); }
 
 /* --------------------------------------------------------------------------
    3. Structure
@@ -135,6 +238,9 @@ strong { font-weight: 600; }
 .section { padding-block: var(--section-y); }
 .section--sable { background: var(--sable); }
 .section--blanc { background: var(--blanc); }
+/* Quatrième surface, sable chaud. Sans elle le site n'alternait qu'entre
+   blanc, sable et sapin, et deux blocs sombres finissaient collés. */
+.section--tiede { background: var(--surface-tiede); }
 .section--sapin { background: var(--sapin); color: var(--sur-sapin); }
 .section--sapin h2,
 .section--sapin h3 { color: var(--blanc); }
@@ -159,41 +265,52 @@ strong { font-weight: 600; }
 /* --------------------------------------------------------------------------
    4. Titres de section et filet de signature
    -------------------------------------------------------------------------- */
-.entete-section { margin-bottom: 36px; max-width: 720px; }
+.entete-section { margin-bottom: 40px; max-width: 720px; }
 .entete-section--centre { margin-inline: auto; text-align: center; }
 .entete-section--centre .filet { justify-content: center; }
 
+/* Le surtitre passe en chasse fixe. C'est le détail qui fait basculer la
+   page du registre marketing vers celui de la fiche technique, et il se
+   reconnaît d'une section à l'autre sans jamais crier. */
 .surtitre {
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--police-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
   color: var(--ecorce);
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
-.section--sapin .surtitre { color: #C9A882; }
+.surtitre::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  flex: none;
+}
+.entete-section--centre .surtitre { justify-content: center; }
+.section--sapin .surtitre { color: var(--ambre-vif); }
 
-/* Filet fin terminé par un cercle plein, remplace les pictogrammes */
+/* Filet de séparation. L'ancien mêlait un trait et une pastille pleine,
+   trop décoratif pour ce que ça disait. Un trait dégradé suffit. */
 .filet {
   display: flex;
   align-items: center;
-  margin-top: 16px;
-  margin-bottom: 20px;
+  margin-top: 18px;
+  margin-bottom: 22px;
 }
 .filet::before {
   content: "";
-  width: 58px;
+  width: 76px;
   height: 2px;
-  background: var(--mousse);
   border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--mousse), var(--ambre));
 }
-.filet::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--mousse);
-  margin-left: -1px;
+.section--sapin .filet::before {
+  background: linear-gradient(90deg, var(--mousse-vif), var(--ambre-vif));
 }
 
 .intro-section { color: var(--encre-douce); font-size: 1.05rem; }
@@ -207,47 +324,95 @@ strong { font-weight: 600; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 30px;
+  padding: 15px 28px;
   border-radius: var(--r-pill);
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   font-family: inherit;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 590;
+  letter-spacing: -0.005em;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
+  position: relative;
+  isolation: isolate;
   transition: background var(--transition), color var(--transition),
-              border-color var(--transition), transform var(--transition);
+              border-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
 }
 .bouton:hover { transform: translateY(-2px); }
-.bouton:active { transform: translateY(0); }
+.bouton:active { transform: translateY(0); transition-duration: 60ms; }
 
-.bouton--mousse { background: var(--mousse); color: var(--blanc); }
-.bouton--mousse:hover { background: var(--mousse-sombre); color: var(--blanc); }
+/* Recours principal. Le vert d'origine vibrait sur le sable, il est
+   assombri, et l'ombre portée reprend sa teinte plutôt qu'un gris. */
+.bouton--mousse {
+  background: var(--mousse-profond);
+  color: var(--blanc);
+  box-shadow: 0 10px 22px -14px rgba(71, 112, 47, 0.9);
+}
+.bouton--mousse:hover {
+  background: var(--sapin);
+  color: var(--blanc);
+  box-shadow: 0 16px 30px -16px rgba(20, 49, 31, 0.75);
+}
 
 .bouton--contour {
   background: transparent;
-  border-color: var(--sapin);
+  border-color: var(--trait-net);
   color: var(--sapin);
 }
-.bouton--contour:hover { background: var(--sapin); color: var(--blanc); }
+.bouton--contour:hover { background: var(--sapin); border-color: var(--sapin); color: var(--blanc); }
+
+/* Recours secondaire chaud, pour les intentions qui ne sont pas le devis :
+   voir un chantier, vérifier une commune, être rappelé. */
+.bouton--ambre {
+  background: var(--ambre);
+  color: var(--blanc);
+  box-shadow: 0 10px 22px -14px rgba(192, 122, 51, 0.9);
+}
+.bouton--ambre:hover { background: #A9682A; color: var(--blanc); }
 
 .bouton--clair { background: var(--blanc); color: var(--sapin); }
-.bouton--clair:hover { background: var(--mousse-voile); color: var(--sapin); }
+.bouton--clair:hover { background: var(--ambre-voile); color: var(--sapin); }
 
 .bouton--contour-clair {
-  background: transparent;
-  border-color: rgba(232, 237, 230, 0.5);
-  color: var(--blanc);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--sapin-ligne-forte);
+  color: var(--sur-sapin);
 }
-.bouton--contour-clair:hover { background: var(--blanc); color: var(--sapin); }
+.bouton--contour-clair:hover { background: var(--blanc); border-color: var(--blanc); color: var(--sapin); }
 
-.bouton--petit { padding: 11px 22px; font-size: 0.94rem; }
+/* Lien fléché. Tout n'a pas à être un bouton plein : sur une carte ou en
+   fin de paragraphe, un lien qui avance suffit et allège la page. */
+.lien-fleche {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 590;
+  font-size: 0.96rem;
+  text-decoration: none;
+  color: var(--mousse-profond);
+}
+.lien-fleche::after {
+  content: "";
+  width: 16px;
+  height: 8px;
+  background: currentColor;
+  clip-path: polygon(0 42%, 62% 42%, 62% 0, 100% 50%, 62% 100%, 62% 58%, 0 58%);
+  transition: transform var(--transition);
+}
+.lien-fleche:hover { color: var(--sapin); }
+.lien-fleche:hover::after { transform: translateX(4px); }
+.section--sapin .lien-fleche { color: var(--mousse-vif); }
+.section--sapin .lien-fleche:hover { color: var(--blanc); }
+
+.bouton--petit { padding: 11px 21px; font-size: 0.93rem; }
 .bouton--large { width: 100%; }
 
 .groupe-boutons {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 14px;
 }
 
@@ -259,7 +424,7 @@ strong { font-weight: 600; }
   padding: 8px 18px;
   border-radius: var(--r-pill);
   background: var(--mousse-voile);
-  color: var(--mousse-sombre);
+  color: var(--mousse-profond);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
@@ -415,7 +580,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   transition: background var(--transition), color var(--transition);
 }
 .nav__lien:hover { background: var(--mousse-voile); color: var(--sapin); }
-.nav__lien[aria-current="page"] { background: var(--mousse-voile); color: var(--mousse-sombre); font-weight: 600; }
+.nav__lien[aria-current="page"] { background: var(--mousse-voile); color: var(--mousse-profond); font-weight: 600; }
 
 .nav__chevron { width: 11px; height: 11px; transition: transform var(--transition); }
 .nav__declencheur[aria-expanded="true"] .nav__chevron { transform: rotate(180deg); }
@@ -547,11 +712,16 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 .menu-mobile__actions { display: grid; gap: 10px; padding-inline: 4px; }
 
 /* --------------------------------------------------------------------------
-   8. Premier écran, fond clair uni sans photo derrière le texte
+   8. Premier écran
+
+   Deux objets distincts. Le premier écran clair, sobre, sert les 27 pages
+   intérieures. Le hero sombre est réservé à l'accueil : c'est le seul
+   endroit du site où l'on a trois secondes pour prouver le métier, et un
+   bloc de texte centré sur fond crème ne le prouvait pas.
    -------------------------------------------------------------------------- */
 .premier-ecran {
   background: var(--sable);
-  padding-block: 56px 44px;
+  padding-block: 52px 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -559,27 +729,28 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 .premier-ecran::before {
   content: "";
   position: absolute;
-  top: -160px;
+  top: -180px;
   left: 50%;
   transform: translateX(-50%);
-  width: 760px;
-  height: 420px;
-  background: radial-gradient(ellipse at center, rgba(92, 138, 60, 0.09), transparent 68%);
+  width: 820px;
+  height: 460px;
+  background: radial-gradient(ellipse at center, rgba(92, 138, 60, 0.10), transparent 68%);
   pointer-events: none;
 }
 .premier-ecran__contenu { position: relative; max-width: 780px; margin-inline: auto; }
-.premier-ecran h1 { margin-bottom: 22px; }
+.premier-ecran h1 { margin-bottom: 20px; }
 .premier-ecran__texte {
-  font-size: 1.1rem;
+  font-size: var(--t-chapeau);
   color: var(--encre-douce);
   max-width: 620px;
   margin-inline: auto;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
+.premier-ecran .surtitre { justify-content: center; }
 .premier-ecran .groupe-boutons { justify-content: center; }
 
 @media (min-width: 768px) {
-  .premier-ecran { padding-block: 84px 60px; }
+  .premier-ecran { padding-block: 80px 56px; }
 }
 
 /* Ligne de réassurance */
@@ -595,9 +766,16 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   font-size: 0.92rem;
   color: var(--encre-douce);
 }
-.reassurance li { margin: 0; display: inline-flex; align-items: center; gap: 12px; }
+.reassurance li { margin: 0; display: inline-flex; align-items: center; gap: 12px; max-width: none; }
 /* est-dernier-visible est posée par le script quand des lignes sont masquées,
    sinon la dernière ligne encore affichée garderait sa puce de séparation. */
+/* Variante sur fond profond, posée sous les recours du hero. Elle reste
+   vide tant que l'entreprise n'a pas fourni certification, assurance et
+   note Google. Le jour où elles arrivent, elles s'affichent à l'endroit
+   exact où le visiteur hésite. */
+.reassurance--sombre { color: var(--sur-sapin-doux); margin-top: 26px; justify-content: flex-start; }
+.reassurance--sombre li::after { background: var(--mousse-vif) !important; }
+
 .reassurance li:not(:last-child):not(.est-dernier-visible)::after {
   content: "";
   width: 5px;
@@ -605,6 +783,145 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   border-radius: 50%;
   background: var(--mousse);
 }
+
+/* --------------------------------------------------------------------------
+   8 bis. Hero de l'accueil, fond profond et photo de chantier réelle
+   -------------------------------------------------------------------------- */
+.heros {
+  position: relative;
+  background: var(--nuit);
+  color: var(--sur-sapin);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Halo froid en haut à droite, pour que le fond ne soit pas un aplat mort */
+.heros::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: 780px;
+  height: 780px;
+  background: radial-gradient(circle at center, rgba(92, 138, 60, 0.22), transparent 62%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heros__grille {
+  display: grid;
+  gap: 34px;
+  padding-block: 46px 0;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .heros__grille {
+    grid-template-columns: minmax(0, 1.24fr) minmax(0, 0.76fr);
+    gap: 54px;
+    padding-block: 76px 76px;
+  }
+}
+
+.heros h1 {
+  color: var(--blanc);
+  font-size: var(--t-geant);
+  letter-spacing: var(--ls-geant);
+  line-height: 1.07;
+  margin-bottom: 22px;
+}
+/* La contrainte de mesure n'a de sens qu'à partir du moment où la colonne
+   est plus large que le titre. Sur mobile elle ne ferait que hacher. */
+@media (min-width: 900px) { .heros h1 { max-width: 15ch; } }
+/* Le second membre du titre passe en vert clair : la hiérarchie se joue
+   dans la couleur plutôt qu'en coupant la phrase en deux tailles. */
+.heros h1 .heros__lieu { color: var(--mousse-vif); display: block; }
+
+.heros__chapeau {
+  font-size: var(--t-chapeau);
+  color: var(--sur-sapin-doux);
+  max-width: 46ch;
+  margin-bottom: 30px;
+}
+.heros .surtitre { color: var(--ambre-vif); }
+
+/* La photo déborde vers le bas sur grand écran, elle n'est pas posée dans
+   une boîte. C'est ce débordement qui donne l'échelle et la verticalité. */
+.heros__photo {
+  position: relative;
+  border-radius: var(--r-photo);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--sapin-clair);
+}
+.heros__photo img { width: 100%; height: 100%; object-fit: cover; }
+.heros__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 26, 17, 0.55), transparent 46%);
+}
+@media (max-width: 899px) {
+  /* Sur mobile la photo prend toute la largeur de l'écran, sans gouttière.
+     Une photo de métier encadrée de marges perd la moitié de sa force. */
+  .heros__media {
+    margin-inline: calc(var(--gouttiere) * -1);
+  }
+  .heros__photo { border-radius: 0; aspect-ratio: 5 / 4; }
+}
+
+/* Vignette posée sur la photo, qui dit où et quoi. Elle remplace la
+   légende générique et ancre la preuve dans un lieu réel. */
+.heros__vignette {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.heros__vignette .tech { color: var(--ambre-vif); }
+.heros__vignette span:last-child { color: var(--blanc); font-size: 0.95rem; font-weight: 590; }
+
+/* Socle de chiffres. Séparateurs en filets fins plutôt qu'en cartes :
+   quatre cartes de plus auraient fait exactement le site générique que
+   l'on cherche à éviter. */
+.heros__socle {
+  border-top: 1px solid var(--sapin-ligne);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 760px) {
+  .heros__socle { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.heros__fait {
+  padding: 22px 0 24px;
+  border-left: 1px solid var(--sapin-ligne);
+  padding-left: 20px;
+}
+.heros__fait:first-child { border-left: 0; padding-left: 0; }
+@media (max-width: 759px) {
+  .heros__fait:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .heros__fait:nth-child(n+3) { border-top: 1px solid var(--sapin-ligne); }
+}
+.heros__nombre {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: clamp(1.7rem, 3.4vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--blanc);
+  font-variant-numeric: tabular-nums;
+}
+.heros__nombre sup {
+  font-size: 0.44em;
+  vertical-align: super;
+  color: var(--mousse-vif);
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+.heros__fait .tech { display: block; margin-top: 9px; color: var(--sur-sapin-tenu); }
 
 /* --------------------------------------------------------------------------
    9. Bandeau photographique panoramique
@@ -632,11 +949,18 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
    -------------------------------------------------------------------------- */
 .visuel {
   position: relative;
-  border-radius: var(--r-carte);
+  border-radius: var(--r-photo);
   overflow: hidden;
-  background: var(--blanc);
+  background: var(--surface-creuse);
 }
-.visuel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.visuel img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--transition-lente);
+}
+/* Zoom très léger au survol, uniquement là où la photo est cliquable ou
+   fait partie d'un bloc actif. Une photo qui bouge sans raison agace. */
+a:hover > .visuel img,
+.visuel--anime:hover img { transform: scale(1.035); }
 .visuel--panoramique { aspect-ratio: 16 / 7; }
 .visuel--carre { aspect-ratio: 1 / 1; }
 .visuel--portrait { aspect-ratio: 4 / 5; }
@@ -692,7 +1016,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   padding: 6px 16px;
   border-radius: var(--r-pill);
   background: var(--mousse-voile);
-  color: var(--mousse-sombre);
+  color: var(--mousse-profond);
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -742,17 +1066,24 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   transition: background var(--transition);
   border-radius: var(--r-carte);
 }
-.service-ligne__bouton:hover { background: rgba(92, 138, 60, 0.05); }
+.service-ligne__bouton:hover { background: rgba(92, 138, 60, 0.055); }
+/* La ligne ouverte se distingue par un fond tiède, pas seulement par le
+   signe. Sans cela on perd de vue quelle ligne on est en train de lire. */
+.service-ligne:has(.service-ligne__bouton[aria-expanded="true"]) { background: var(--surface-tiede); }
+.service-ligne:has(.service-ligne__bouton[aria-expanded="true"]) .service-ligne__bouton:hover { background: transparent; }
 
 .service-ligne__num {
-  font-family: "Bitter", Georgia, serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--ecorce);
+  font-family: var(--police-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ambre);
   grid-row: 1;
+  transition: color var(--transition);
 }
+.service-ligne__bouton[aria-expanded="true"] .service-ligne__num { color: var(--mousse-profond); }
 .service-ligne__nom {
-  font-family: "Bitter", Georgia, serif;
+  font-family: var(--police-titre);
   font-size: clamp(1.15rem, 3vw, 1.5rem);
   font-weight: 600;
   color: var(--sapin);
@@ -821,11 +1152,11 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   content: "";
   position: absolute;
   left: 0;
-  top: 10px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--mousse);
+  top: 13px;
+  width: 14px;
+  height: 2px;
+  border-radius: var(--r-pill);
+  background: var(--ambre);
 }
 
 @media (min-width: 860px) {
@@ -833,7 +1164,22 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   .service-ligne__num { font-size: 1.05rem; }
   .service-ligne__resume { grid-column: 3; grid-row: 1; }
   .service-ligne__signe { grid-column: 4; }
-  .service-ligne__grille { grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; padding: 4px 8px 40px 88px; }
+  .service-ligne__grille {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+    padding: 4px 8px 44px 88px;
+    position: relative;
+  }
+  .service-ligne__grille::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 2px;
+    bottom: 46px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--ambre), rgba(192, 122, 51, 0));
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -935,7 +1281,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   cursor: pointer;
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
-.filtre:hover { border-color: var(--mousse); color: var(--mousse-sombre); }
+.filtre:hover { border-color: var(--mousse); color: var(--mousse-profond); }
 .filtre[aria-pressed="true"] {
   background: var(--mousse);
   border-color: var(--mousse);
@@ -1083,7 +1429,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   position: absolute;
   top: 50%;
   left: 50%;
-  background: var(--mousse-sombre);
+  background: var(--mousse-profond);
   border-radius: var(--r-pill);
   transform: translate(-50%, -50%);
   transition: transform var(--transition), background var(--transition);
@@ -1120,7 +1466,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   text-decoration: none;
   margin-bottom: 8px;
 }
-.contact__tel:hover { color: var(--mousse-sombre); }
+.contact__tel:hover { color: var(--mousse-profond); }
 .contact__mention { font-size: 0.9rem; color: var(--encre-douce); margin-bottom: 26px; }
 
 .coordonnees { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 18px; }
@@ -1130,7 +1476,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   height: 40px;
   border-radius: 50%;
   background: var(--mousse-voile);
-  color: var(--mousse-sombre);
+  color: var(--mousse-profond);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -1139,7 +1485,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 .coordonnees__intitule { display: block; font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ecorce); font-weight: 600; }
 .coordonnees__valeur { color: var(--encre); font-style: normal; }
 .coordonnees__valeur a { color: var(--encre); text-decoration: none; }
-.coordonnees__valeur a:hover { color: var(--mousse-sombre); text-decoration: underline; }
+.coordonnees__valeur a:hover { color: var(--mousse-profond); text-decoration: underline; }
 
 .carte-integree {
   border-radius: var(--r-carte);
@@ -1167,7 +1513,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 
 .champ { display: flex; flex-direction: column; gap: 7px; }
 .champ label { font-size: 0.9rem; font-weight: 600; color: var(--sapin); }
-.champ__obligatoire { color: var(--mousse-sombre); }
+.champ__obligatoire { color: var(--mousse-profond); }
 .champ__aide { font-size: 0.82rem; color: var(--encre-douce); font-weight: 400; }
 
 .champ input[type="text"],
@@ -1343,7 +1689,7 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
 .ariane li { margin: 0; display: inline-flex; align-items: center; gap: 10px; color: var(--encre-douce); }
 .ariane li:not(:last-child)::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--trait-fort); }
 .ariane a { color: var(--encre-douce); text-decoration: none; }
-.ariane a:hover { color: var(--mousse-sombre); text-decoration: underline; }
+.ariane a:hover { color: var(--mousse-profond); text-decoration: underline; }
 .ariane [aria-current="page"] { color: var(--sapin); font-weight: 500; }
 
 /* --------------------------------------------------------------------------
@@ -1457,3 +1803,326 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
   white-space: nowrap;
   border: 0;
 }
+
+/* --------------------------------------------------------------------------
+   23. Apparition au défilement
+
+   Une seule translation courte et une opacité. Rien qui déplace la mise en
+   page, rien qui dure assez pour se remarquer consciemment.
+   -------------------------------------------------------------------------- */
+.est-a-reveler { opacity: 0; transform: translateY(18px); }
+.est-a-reveler [data-reveler-enfant] { opacity: 0; transform: translateY(16px); }
+
+.est-a-reveler,
+.est-a-reveler [data-reveler-enfant] {
+  transition: opacity 620ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.est-revele,
+.est-revele [data-reveler-enfant] { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .est-a-reveler,
+  .est-a-reveler [data-reveler-enfant] { opacity: 1; transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   24. Comparateur avant et après
+
+   Le moment fort de la page. Deux photos du même cadrage, un volet que
+   l'on tire. C'est la seule démonstration qui vaille dans ce métier, et
+   elle ne repose sur aucune promesse écrite.
+   -------------------------------------------------------------------------- */
+.comparateur {
+  --position: 50%;
+  position: relative;
+  border-radius: var(--r-photo);
+  overflow: hidden;
+  background: var(--nuit);
+  aspect-ratio: 1 / 1;
+  user-select: none;
+  touch-action: pan-y;
+}
+@media (min-width: 700px) { .comparateur { aspect-ratio: 4 / 3; } }
+
+.comparateur img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Le volet du dessus est rogné à la position du curseur. clip-path évite
+   de redimensionner l'image, donc aucun reflow pendant le glissement. */
+.comparateur__volet {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--position));
+  will-change: clip-path;
+}
+
+.comparateur__etiquette {
+  position: absolute;
+  top: 14px;
+  z-index: 3;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: rgba(10, 26, 17, 0.72);
+  backdrop-filter: blur(6px);
+  color: var(--blanc);
+  font-family: var(--police-mono);
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  pointer-events: none;
+}
+.comparateur__etiquette--avant { left: 14px; }
+.comparateur__etiquette--apres { right: 14px; }
+
+/* Rail et poignée, purement visuels. Le contrôle réel est l'input range. */
+.comparateur__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: 2px;
+  background: var(--blanc);
+  transform: translateX(-1px);
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 0 18px rgba(10, 26, 17, 0.5);
+}
+.comparateur__poignee {
+  position: absolute;
+  top: 50%;
+  left: var(--position);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--blanc);
+  box-shadow: 0 6px 20px -6px rgba(10, 26, 17, 0.6);
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  transition: transform 120ms ease;
+}
+/* Deux chevrons opposés, tracés en bordures. Plus lisible qu'un clip-path
+   compliqué, et net à toutes les densités d'écran. */
+.comparateur__poignee::before,
+.comparateur__poignee::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-block: 5px solid transparent;
+  transform: translateY(-50%);
+}
+.comparateur__poignee::before {
+  left: 13px;
+  border-right: 7px solid var(--sapin);
+}
+.comparateur__poignee::after {
+  right: 13px;
+  border-left: 7px solid var(--sapin);
+}
+
+/* L'input range couvre toute la surface, invisible mais opérant. Il donne
+   le clavier, le tactile et la souris sans une ligne de calcul de pointeur. */
+.comparateur__curseur {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+.comparateur__curseur::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 56px;
+  height: 100%;
+  cursor: ew-resize;
+}
+.comparateur__curseur::-moz-range-thumb {
+  width: 56px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: ew-resize;
+}
+.comparateur__curseur:focus-visible { outline: 2px solid var(--ambre-vif); outline-offset: 3px; }
+.comparateur__curseur:active + .comparateur__rail + .comparateur__poignee,
+.comparateur:hover .comparateur__poignee { transform: translate(-50%, -50%) scale(1.06); }
+
+.comparateur__legende {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  margin-top: 16px;
+}
+.comparateur__legende strong { font-family: var(--police-titre); font-weight: 600; color: var(--sapin); }
+.section--sapin .comparateur__legende strong { color: var(--blanc); }
+
+/* --------------------------------------------------------------------------
+   25. Vérification de commune
+
+   Widget utile plutôt que démonstratif : il route vers la bonne page ville
+   et n'affirme rien que le site ne dise déjà par ailleurs.
+   -------------------------------------------------------------------------- */
+.verif {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+  border-radius: var(--r-carte);
+  background: var(--surface);
+  border: 1px solid var(--trait);
+  box-shadow: var(--ombre-nette);
+}
+@media (min-width: 620px) { .verif { padding: 26px 28px; } }
+
+.verif__ligne { display: flex; gap: 10px; flex-wrap: wrap; }
+.verif__ligne input {
+  flex: 1 1 210px;
+  min-width: 0;
+  padding: 13px 18px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--trait-fort);
+  background: var(--sable);
+  font: inherit;
+  font-size: 1rem;
+  color: var(--encre);
+}
+.verif__ligne input:focus {
+  outline: none;
+  border-color: var(--mousse);
+  box-shadow: 0 0 0 3px var(--mousse-voile);
+}
+
+.verif__reponse {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  padding: 14px 16px;
+  border-radius: var(--r-champ);
+  border-left: 3px solid var(--mousse);
+  background: var(--mousse-voile);
+  color: var(--sapin);
+}
+.verif__reponse--peut-etre {
+  border-left-color: var(--ambre);
+  background: var(--ambre-voile);
+  color: #6B451E;
+}
+.verif__reponse .lien-fleche { margin-left: 4px; }
+.verif__reponse--peut-etre .lien-fleche { color: #8A5722; }
+
+/* Les liens communes servent de source de données au script. Ils restent
+   dans le HTML, donc consultables et indexables sans JavaScript. */
+.verif__sources { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.verif__sources li { margin: 0; }
+.verif__sources a {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: var(--r-pill);
+  background: var(--surface-creuse);
+  color: var(--encre-douce);
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.verif__sources a:hover { background: var(--sapin); color: var(--blanc); }
+
+/* --------------------------------------------------------------------------
+   26. Bloc démonstration, texte et comparateur côte à côte
+   -------------------------------------------------------------------------- */
+.demo { display: grid; gap: 30px; align-items: center; }
+@media (min-width: 940px) {
+  .demo { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); gap: 56px; }
+}
+.demo__texte h2 { color: var(--blanc); }
+.demo__media { margin: 0; }
+.demo__texte .groupe-boutons { margin-top: 28px; }
+
+/* Section resserrée, utilisée quand le bloc porte déjà sa propre respiration. */
+.section--serree { padding-block: calc(var(--section-y) * 0.78); }
+
+/* --------------------------------------------------------------------------
+   27. Ajustements mobile
+
+   Le mobile n'est pas un desktop rétréci. L'interlettrage des libellés
+   techniques, calibré pour de grandes largeurs, y devient encombrant, et
+   la barre d'appel fixe doit rendre sa hauteur au bas de page.
+   -------------------------------------------------------------------------- */
+@media (max-width: 599px) {
+  .surtitre { letter-spacing: 0.06em; font-size: 0.7rem; gap: 8px; }
+  .surtitre::before { width: 16px; }
+  .heros__chapeau { max-width: none; }
+  .heros__grille { padding-block: 34px 0; }
+  .comparateur__poignee { width: 46px; height: 46px; }
+  .comparateur__etiquette { top: 10px; padding: 5px 11px; }
+  .comparateur__etiquette--avant { left: 10px; }
+  .comparateur__etiquette--apres { right: 10px; }
+  /* Les recours du hero prennent toute la largeur : au pouce, deux boutons
+     côte à côte sur 375 pixels donnent deux cibles trop étroites. */
+  .heros .groupe-boutons { flex-direction: column; align-items: stretch; }
+  .heros .groupe-boutons .bouton { width: 100%; }
+}
+
+/* La barre d'appel fixe masque la fin du pied de page tant qu'on ne lui
+   rend pas sa hauteur. Le calcul tient compte de la zone sûre iOS. */
+@media (max-width: 1039px) {
+  body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* --------------------------------------------------------------------------
+   28. Bande immersive pleine largeur
+
+   Une respiration entre deux longues sections. Elle ne vend rien et ne
+   demande rien : elle casse le métronome des sections en conteneur, et
+   redonne son échelle au métier.
+   -------------------------------------------------------------------------- */
+.bande-immersive {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 300px;
+  height: clamp(300px, 44vh, 480px);
+  display: grid;
+  align-items: end;
+  background: var(--nuit);
+}
+.bande-immersive > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.bande-immersive__voile {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(10, 26, 17, 0.86) 6%,
+                                      rgba(10, 26, 17, 0.30) 52%,
+                                      rgba(10, 26, 17, 0.10) 100%);
+}
+.bande-immersive__texte { padding-bottom: 44px; }
+.bande-immersive__texte .tech { color: var(--ambre-vif); display: block; margin-bottom: 12px; }
+.bande-immersive__texte p {
+  font-family: var(--police-titre);
+  font-size: clamp(1.25rem, 2.6vw, 1.95rem);
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--blanc);
+  max-width: 22ch;
+  margin: 0;
+}
+.bande-immersive__mention { right: 14px; bottom: 14px; }

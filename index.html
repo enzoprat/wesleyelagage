@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
@@ -202,39 +202,62 @@
 
 <main id="contenu">
 
-  <!-- 3. Premier écran, fond clair uni, aucune photo derrière le texte -->
-  <section class="premier-ecran">
-    <div class="conteneur premier-ecran__contenu">
-      <span class="surtitre">Entreprise d'élagage installée à Mérignac</span>
-      <h1>
-        Élagage et soins aux arbres
-        <span style="display:block">à Mérignac et dans Bordeaux Métropole</span>
-      </h1>
-      <p class="premier-ecran__texte">
-        LCC Espaces Verts intervient sur les arbres des particuliers et des professionnels.
-        L'entreprise part de Mérignac et se déplace dans toute Bordeaux Métropole.
-      </p>
-      <div class="groupe-boutons">
-        <a class="bouton bouton--mousse" href="contact/">Demander un devis</a>
-        <a class="bouton bouton--contour" href="tel:+33641598054">Appeler maintenant, 06 41 59 80 54</a>
-      </div>
-      <ul class="reassurance">
-        <li>Élagueur depuis 2006</li>
-        <li><span class="a-confirmer">[[À CONFIRMER : certification d'élagueur grimpeur]]</span></li>
-        <li><span class="a-confirmer">[[À CONFIRMER : assurance responsabilité civile professionnelle]]</span></li>
-        <li><span class="a-confirmer">[[À CONFIRMER : note et nombre d'avis Google]]</span></li>
-      </ul>
-    </div>
-  </section>
+  <!-- 3. Hero, fond profond et photo de chantier réelle -->
+  <section class="heros" aria-label="Présentation">
+    <div class="conteneur heros__grille">
 
-  <!-- 4. Bandeau photographique panoramique -->
-  <section class="bandeau-photo" aria-label="Élagueur sur cordes">
+      <div class="heros__texte">
+        <span class="surtitre">Entreprise d'élagage installée à Mérignac</span>
+        <h1>
+          Élagage et soins aux arbres
+          <span class="heros__lieu">à Mérignac et dans Bordeaux Métropole</span>
+        </h1>
+        <p class="heros__chapeau">
+          LCC Espaces Verts intervient sur les arbres des particuliers et des professionnels.
+          L'entreprise part de Mérignac et se déplace dans toute Bordeaux Métropole.
+        </p>
+        <div class="groupe-boutons">
+          <a class="bouton bouton--mousse" href="contact/">Décrire mon projet</a>
+          <a class="bouton bouton--contour-clair" href="tel:+33641598054">Appeler le 06 41 59 80 54</a>
+        </div>
+        <ul class="reassurance reassurance--sombre">
+          <li><span class="a-confirmer">[[À CONFIRMER : certification d'élagueur grimpeur]]</span></li>
+          <li><span class="a-confirmer">[[À CONFIRMER : assurance responsabilité civile professionnelle]]</span></li>
+          <li><span class="a-confirmer">[[À CONFIRMER : note et nombre d'avis Google]]</span></li>
+        </ul>
+      </div>
+
+      <div class="heros__media">
+        <div class="heros__photo">
+          <img src="assets/img/accueil-portrait.webp"
+            alt="L'élagueur, casque et harnais, coupe les branches hautes d'un arbre"
+            width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async">
+          <div class="heros__vignette">
+            <span class="tech">chantier</span>
+            <span>Le Bouscat, arbre gagné par le lierre</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="conteneur">
-      <div class="bandeau-photo__cadre">
-        <span class="etiquette etiquette--blanche bandeau-photo__etiquette">Du lundi au samedi, 7h30 à 19h</span>
-        <div class="visuel visuel--panoramique">
-          <img src="assets/img/accueil-hero.webp" alt="Élagueur sur cordes, casque et harnais, en cours de taille dans un arbre" width="1600" height="700" loading="eager" decoding="async">
-          <span class="visuel__mention">Photo d'illustration</span>
+      <div class="heros__socle">
+        <div class="heros__fait">
+          <span class="heros__nombre">2006</span>
+          <span class="tech">élagueur depuis</span>
+        </div>
+        <div class="heros__fait">
+          <span class="heros__nombre" data-compteur="220">220<sup>+</sup></span>
+          <span class="tech">chantiers par an</span>
+        </div>
+        <div class="heros__fait">
+          <span class="heros__nombre" data-compteur="160">160<sup>+</sup></span>
+          <span class="tech">interventions depuis janvier</span>
+        </div>
+        <div class="heros__fait">
+          <span class="heros__nombre">7h30<sup>19h</sup></span>
+          <span class="tech">du lundi au samedi</span>
         </div>
       </div>
     </div>
@@ -529,6 +552,19 @@
     </div>
   </section>
 
+  <!-- 5 bis. Respiration pleine largeur, entre deux longues sections -->
+  <section class="bande-immersive" aria-label="Élagueur sur cordes">
+    <img src="assets/img/accueil-hero.webp"
+      alt="Élagueur sur cordes, casque et harnais, en cours de taille dans un arbre"
+      width="1600" height="700" loading="lazy" decoding="async">
+    <div class="bande-immersive__voile"></div>
+    <div class="conteneur bande-immersive__texte">
+      <span class="tech">sur cordes</span>
+      <p>Aucune aire de chute disponible, l'arbre descend section par section, retenu à la corde.</p>
+    </div>
+    <span class="visuel__mention bande-immersive__mention">Photo d'illustration</span>
+  </section>
+
   <!-- 6. Déroulé d'une intervention -->
   <section class="section section--sable">
     <div class="conteneur">
@@ -614,6 +650,54 @@
             <a class="bouton bouton--clair" href="entreprise/">En savoir plus sur l'entreprise</a>
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 bis. Avant et après, la seule démonstration qui vaille -->
+  <section class="section section--tiede section--serree" data-reveler>
+    <div class="conteneur">
+      <div class="demo">
+        <div class="demo__texte">
+          <span class="surtitre">La preuve, pas la promesse</span>
+          <h2>Tirez le curseur, jugez le travail</h2>
+          <div class="filet" aria-hidden="true"></div>
+          <p class="intro-section">
+            Une haie reprise en hauteur et remise d'aplomb sur toute sa longueur.
+            Même point de vue, même journée, aucune retouche.
+          </p>
+          <p class="intro-section">
+            Un chantier se juge autant à la coupe qu'à l'état du terrain
+            une fois l'équipe partie.
+          </p>
+          <div class="groupe-boutons">
+            <a class="bouton bouton--mousse" href="realisations/">Voir les chantiers</a>
+            <a class="lien-fleche" href="contact/">Décrire mon projet</a>
+          </div>
+        </div>
+
+        <figure class="demo__media">
+          <div class="comparateur" data-comparateur>
+            <img src="assets/img/chantier-ambares-avant.webp"
+              alt="Haie de jardin épaisse et arrondie, avant intervention"
+              width="900" height="900" loading="lazy" decoding="async">
+            <div class="comparateur__volet">
+              <img src="assets/img/chantier-ambares-apres.webp"
+                alt="La même haie taillée à plat et remise d'aplomb"
+                width="900" height="900" loading="lazy" decoding="async">
+            </div>
+            <span class="comparateur__etiquette comparateur__etiquette--avant">avant</span>
+            <span class="comparateur__etiquette comparateur__etiquette--apres">après</span>
+            <input class="comparateur__curseur" type="range" min="0" max="100" value="52"
+              data-comparateur-curseur aria-label="Comparer l'avant et l'après du chantier">
+            <span class="comparateur__rail" aria-hidden="true"></span>
+            <span class="comparateur__poignee" aria-hidden="true"></span>
+          </div>
+          <figcaption class="comparateur__legende">
+            <span class="tech">Ambarès-et-Lagrave</span>
+            <strong>Haie de jardin reprise sur toute sa longueur</strong>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -766,7 +850,7 @@
   </section>
 
   <!-- 9. Zones d'intervention -->
-  <section class="section section--sable">
+  <section class="section section--blanc">
     <div class="conteneur">
       <div class="entete-section">
         <span class="surtitre">Où nous intervenons</span>
@@ -779,22 +863,32 @@
         </p>
       </div>
 
+      <form class="verif" data-verif-commune data-contact="contact/">
+        <label class="tech" for="ma-commune">Vérifier ma commune</label>
+        <div class="verif__ligne">
+          <input id="ma-commune" type="text" name="commune" autocomplete="address-level2"
+            placeholder="Saisissez votre commune" spellcheck="false">
+          <button class="bouton bouton--mousse" type="submit">Vérifier</button>
+        </div>
+        <p class="verif__reponse" data-verif-reponse hidden></p>
+      </form>
+
       <div class="zones__groupes">
         <div class="zones__bloc">
-          <h3 class="zones__titre">Bordeaux Métropole</h3>
-          <ul class="liste-etiquettes">
-            <li><a class="etiquette" href="zones-intervention/merignac/">Mérignac</a></li>
-            <li><a class="etiquette" href="zones-intervention/bordeaux/">Bordeaux</a></li>
-            <li><a class="etiquette" href="zones-intervention/pessac/">Pessac</a></li>
-            <li><a class="etiquette" href="zones-intervention/le-haillan/">Le Haillan</a></li>
-            <li><a class="etiquette" href="zones-intervention/eysines/">Eysines</a></li>
-            <li><a class="etiquette" href="zones-intervention/saint-medard-en-jalles/">Saint-Médard-en-Jalles</a></li>
-            <li><a class="etiquette" href="zones-intervention/le-bouscat/">Le Bouscat</a></li>
-            <li><a class="etiquette" href="zones-intervention/bruges/">Bruges</a></li>
-            <li><a class="etiquette" href="zones-intervention/blanquefort/">Blanquefort</a></li>
-            <li><a class="etiquette" href="zones-intervention/talence/">Talence</a></li>
-            <li><a class="etiquette" href="zones-intervention/gradignan/">Gradignan</a></li>
-            <li><a class="etiquette" href="zones-intervention/villenave-dornon/">Villenave-d'Ornon</a></li>
+          <h3 class="zones__titre">Pages par commune</h3>
+          <ul class="verif__sources">
+            <li><a data-commune="Mérignac" href="zones-intervention/merignac/">Mérignac</a></li>
+            <li><a data-commune="Bordeaux" href="zones-intervention/bordeaux/">Bordeaux</a></li>
+            <li><a data-commune="Pessac" href="zones-intervention/pessac/">Pessac</a></li>
+            <li><a data-commune="Le Haillan" href="zones-intervention/le-haillan/">Le Haillan</a></li>
+            <li><a data-commune="Eysines" href="zones-intervention/eysines/">Eysines</a></li>
+            <li><a data-commune="Saint-Médard-en-Jalles" href="zones-intervention/saint-medard-en-jalles/">Saint-Médard-en-Jalles</a></li>
+            <li><a data-commune="Le Bouscat" href="zones-intervention/le-bouscat/">Le Bouscat</a></li>
+            <li><a data-commune="Bruges" href="zones-intervention/bruges/">Bruges</a></li>
+            <li><a data-commune="Blanquefort" href="zones-intervention/blanquefort/">Blanquefort</a></li>
+            <li><a data-commune="Talence" href="zones-intervention/talence/">Talence</a></li>
+            <li><a data-commune="Gradignan" href="zones-intervention/gradignan/">Gradignan</a></li>
+            <li><a data-commune="Villenave-d'Ornon" href="zones-intervention/villenave-dornon/">Villenave-d'Ornon</a></li>
           </ul>
         </div>
 

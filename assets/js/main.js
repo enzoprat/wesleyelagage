@@ -514,6 +514,203 @@
   });
 
   /* ------------------------------------------------------------------
+     Apparition au défilement
+
+     Un seul observateur pour toute la page, et une classe posée une fois.
+     Les blocs déjà visibles au chargement ne sont jamais animés, sinon le
+     haut de page clignoterait à chaque arrivée.
+     ------------------------------------------------------------------ */
+  var mouvementReduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var observateurAServi = false;
+
+  if (!mouvementReduit && "IntersectionObserver" in window) {
+    // Les cibles sont désignées ici plutôt que dans le HTML des 28 pages.
+    // Un attribut de plus par bloc sur 28 fichiers serait ingérable, et la
+    // liste reste lisible et modifiable en un seul endroit.
+    var CIBLES = [
+      ".entete-section",
+      ".service-ligne",
+      ".chantier:not([hidden])",
+      ".demo",
+      ".verif",
+      ".carte",
+      ".deroule__etape",
+      ".bandeau-photo__cadre",
+      ".visuel--panoramique",
+      ".formulaire"
+    ].join(",");
+
+    document.querySelectorAll(CIBLES).forEach(function (bloc) {
+      if (!bloc.closest(".heros") && !bloc.hasAttribute("data-reveler")) {
+        bloc.setAttribute("data-reveler", "");
+      }
+    });
+
+    var aReveler = document.querySelectorAll("[data-reveler]");
+
+    var observateur = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (!entree.isIntersecting) return;
+        observateurAServi = true;
+        var bloc = entree.target;
+        // Décalage progressif entre enfants d'un même groupe. Au delà de
+        // six, le retard devient une attente, donc il est plafonné.
+        var enfants = bloc.querySelectorAll("[data-reveler-enfant]");
+        enfants.forEach(function (enfant, i) {
+          enfant.style.transitionDelay = Math.min(i, 6) * 70 + "ms";
+        });
+        bloc.classList.add("est-revele");
+        observateur.unobserve(bloc);
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0 });
+    // Seuil à zéro : un bloc très haut, comme la liste des services ou le
+    // formulaire, n'atteindrait jamais un seuil exprimé en pourcentage.
+
+    aReveler.forEach(function (bloc) {
+      if (bloc.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        bloc.classList.add("est-revele");
+        return;
+      }
+      bloc.classList.add("est-a-reveler");
+      observateur.observe(bloc);
+    });
+
+    // Filet de sécurité. Un bloc laissé à l'opacité zéro parce que
+    // l'observateur n'a pas été appelé serait une page vide, ce qui est
+    // bien pire que l'absence d'animation. Passé ce délai, tout s'affiche.
+    window.setTimeout(function () {
+      document.querySelectorAll(".est-a-reveler:not(.est-revele)").forEach(function (bloc) {
+        var haut = bloc.getBoundingClientRect().top;
+        if (haut < window.innerHeight * 1.4) bloc.classList.add("est-revele");
+      });
+    }, 2600);
+
+    // Deuxième garde-fou. Si au premier défilement l'observateur n'a
+    // toujours rien signalé, c'est qu'il ne fonctionne pas dans ce
+    // contexte. On rend alors tout visible et on abandonne l'animation,
+    // plutôt que de laisser la page à blanc.
+    window.addEventListener("scroll", function verifierUneFois() {
+      window.removeEventListener("scroll", verifierUneFois);
+      window.setTimeout(function () {
+        if (observateurAServi) return;
+        document.querySelectorAll(".est-a-reveler").forEach(function (bloc) {
+          bloc.classList.add("est-revele");
+        });
+      }, 400);
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------
+     Compteurs
+
+     Les chiffres montent une fois, à l'entrée dans le champ de vision.
+     La valeur finale est déjà dans le HTML, donc elle reste correcte si
+     le script ne s'exécute pas, et le référencement la voit toujours.
+     ------------------------------------------------------------------ */
+  if (!mouvementReduit && "IntersectionObserver" in window) {
+    var compteurs = document.querySelectorAll("[data-compteur]");
+    var vueCompteur = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (!entree.isIntersecting) return;
+        var cible = entree.target;
+        vueCompteur.unobserve(cible);
+
+        var fin = parseInt(cible.getAttribute("data-compteur"), 10);
+        if (isNaN(fin)) return;
+        var suffixe = cible.querySelector("sup");
+        var marque = suffixe ? suffixe.outerHTML : "";
+        var depart = performance.now();
+        var duree = 900;
+
+        function pas(maintenant) {
+          var t = Math.min(1, (maintenant - depart) / duree);
+          // Sortie amortie, pour que le chiffre se pose au lieu de buter.
+          var valeur = Math.round(fin * (1 - Math.pow(1 - t, 3)));
+          cible.innerHTML = valeur + marque;
+          if (t < 1) requestAnimationFrame(pas);
+        }
+        requestAnimationFrame(pas);
+      });
+    }, { threshold: 0.5 });
+    compteurs.forEach(function (c) { vueCompteur.observe(c); });
+  }
+
+  /* ------------------------------------------------------------------
+     Comparateur avant et après
+
+     Le curseur est un input range posé par dessus les deux photos. Il
+     apporte gratuitement le clavier, le tactile et la souris, là où un
+     glisser fait main aurait laissé le clavier de côté.
+     ------------------------------------------------------------------ */
+  document.querySelectorAll("[data-comparateur]").forEach(function (bloc) {
+    var curseur = bloc.querySelector("[data-comparateur-curseur]");
+    if (!curseur) return;
+
+    function placer() {
+      bloc.style.setProperty("--position", curseur.value + "%");
+      curseur.setAttribute("aria-valuetext", "Après visible à " + curseur.value + " pour cent");
+    }
+    curseur.addEventListener("input", placer);
+    placer();
+  });
+
+  /* ------------------------------------------------------------------
+     Vérification de commune
+
+     Douze communes ont une page dédiée, le reste de la métropole est
+     desservi sans page. Le widget ne prétend donc rien savoir de plus
+     que ce que le site affirme déjà, il oriente seulement plus vite.
+     ------------------------------------------------------------------ */
+  document.querySelectorAll("[data-verif-commune]").forEach(function (bloc) {
+    var champ = bloc.querySelector("input");
+    var sortie = bloc.querySelector("[data-verif-reponse]");
+    var liens = bloc.querySelectorAll("[data-commune]");
+    if (!champ || !sortie) return;
+
+    var communes = [];
+    liens.forEach(function (lien) {
+      communes.push({
+        nom: lien.getAttribute("data-commune"),
+        libelle: lien.textContent.trim(),
+        url: lien.getAttribute("href")
+      });
+    });
+
+    function simplifier(texte) {
+      return (texte || "")
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z]/g, "");
+    }
+
+    function repondre() {
+      var saisie = simplifier(champ.value);
+      if (saisie.length < 3) { sortie.innerHTML = ""; sortie.hidden = true; return; }
+
+      var trouve = null;
+      communes.forEach(function (c) {
+        var ref = simplifier(c.nom);
+        if (!trouve && (ref.indexOf(saisie) === 0 || saisie.indexOf(ref) === 0)) trouve = c;
+      });
+
+      sortie.hidden = false;
+      if (trouve) {
+        sortie.className = "verif__reponse verif__reponse--oui";
+        sortie.innerHTML = 'Nous intervenons à ' + trouve.libelle +
+          '. <a class="lien-fleche" href="' + trouve.url + '">Voir la page ' + trouve.libelle + '</a>';
+      } else {
+        sortie.className = "verif__reponse verif__reponse--peut-etre";
+        sortie.innerHTML = "Cette commune n'a pas de page dédiée. Nous desservons " +
+          "l'ensemble de Bordeaux Métropole et sa périphérie immédiate. " +
+          '<a class="lien-fleche" href="' + bloc.getAttribute("data-contact") + '">Vérifier par téléphone</a>';
+      }
+    }
+
+    champ.addEventListener("input", repondre);
+    bloc.addEventListener("submit", function (e) { e.preventDefault(); repondre(); });
+  });
+
+  /* ------------------------------------------------------------------
      Année en cours dans le pied de page
      ------------------------------------------------------------------ */
   document.querySelectorAll("[data-annee]").forEach(function (element) {

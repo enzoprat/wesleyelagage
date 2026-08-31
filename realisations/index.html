@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
@@ -207,13 +207,58 @@
     </div>
   </section>
 
+  <!-- Chantier à la une, comparateur avant et après -->
+  <section class="section section--sapin section--serree">
+    <div class="conteneur">
+      <div class="demo">
+        <div class="demo__texte">
+          <span class="surtitre">Chantier à la une</span>
+          <h2>Une haie ramenée à hauteur</h2>
+          <div class="filet" aria-hidden="true"></div>
+          <p class="intro-section">
+            Le sommet dépassait largement la portée d'un taille-haie classique.
+            La perche permet de le reprendre depuis la margelle, sans échafaudage
+            au-dessus de l'eau.
+          </p>
+          <div class="groupe-boutons">
+            <a class="bouton bouton--clair" href="../taille-de-haies/">La taille de haies</a>
+            <a class="lien-fleche" href="../contact/">Demander un devis</a>
+          </div>
+        </div>
+
+        <figure class="demo__media">
+          <div class="comparateur" data-comparateur>
+            <img src="../assets/img/chantier-traine-avant.webp"
+              alt="Haie de grande hauteur au bord d'un bassin, taille en cours à la perche"
+              width="900" height="900" loading="lazy" decoding="async">
+            <div class="comparateur__volet">
+              <img src="../assets/img/chantier-traine-apres.webp"
+                alt="La haie une fois le sommet mis à niveau, chantier terminé"
+                width="900" height="900" loading="lazy" decoding="async">
+            </div>
+            <span class="comparateur__etiquette comparateur__etiquette--avant">avant</span>
+            <span class="comparateur__etiquette comparateur__etiquette--apres">après</span>
+            <input class="comparateur__curseur" type="range" min="0" max="100" value="48"
+              data-comparateur-curseur aria-label="Comparer l'avant et l'après du chantier">
+            <span class="comparateur__rail" aria-hidden="true"></span>
+            <span class="comparateur__poignee" aria-hidden="true"></span>
+          </div>
+          <figcaption class="comparateur__legende">
+            <span class="tech">taille de haies</span>
+            <strong>Taille d'une haie de grande hauteur au bord d'un bassin</strong>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--blanc">
     <div class="conteneur">
       <div class="entete-section">
         <span class="surtitre">Galerie</span>
         <h2>Chantiers réalisés</h2>
         <div class="filet" aria-hidden="true"></div>
-        <p class="intro-section">Les photos réelles remplaceront les blocs ci-dessous une fois transmises par l'entreprise.</p>
+        <p class="intro-section">Chaque fiche présente un chantier réel, photographié sur place.</p>
       </div>
 
       <div class="filtres" data-filtres role="group" aria-label="Filtrer les chantiers par service">
