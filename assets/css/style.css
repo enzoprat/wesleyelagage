@@ -740,7 +740,6 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   margin-inline: auto;
   margin-bottom: 30px;
 }
-.premier-ecran .groupe-boutons { justify-content: center; }
 
 @media (min-width: 768px) {
   .premier-ecran { padding-block: 80px 56px; }
@@ -2129,3 +2128,7 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
   text-shadow: 0 1px 14px rgba(10, 26, 17, 0.85);
 }
 .bande-immersive__mention { right: 14px; bottom: 14px; }
+
+/* Titre de fiche chantier devenu lien vers la page detaillee. */
+.chantier__titre a { color: inherit; text-decoration: none; }
+.chantier__titre a:hover { color: var(--mousse-profond); }
