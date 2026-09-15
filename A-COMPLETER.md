@@ -268,6 +268,30 @@ L'attestation du 31 juillet 2026 apporte trois informations qui ne concordent pa
 
 Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la mention « Données issues de la reprise des données ». L'ancienneté de 2006 est donc plausible, la date du 31/07/2026 pouvant n'être que celle de la reprise au registre national. Cela demande confirmation avant publication.
 
+## Ce que les questions associées de Google réclament
+
+Relevé sur cinq pages de résultats entre le 5 et le 15 septembre 2026, sur les requêtes élagage et taille de haies dans la métropole.
+
+**Le prix revient dans dix questions sur seize.** Tarif horaire d'un élagueur, prix à la journée, prix moyen d'un élagage, tarif moyen pour une haie, taille de haie à moindre coût. Le site n'en dit pas un mot, et aucun chiffre ne sera inventé. C'est le premier manque de contenu du site, devant les avis et les certifications.
+
+Une fourchette suffit, même large, même assortie de conditions. Une page qui dit « à partir de tant, selon la hauteur et l'accès » répond à la question. Une page qui ne dit rien laisse le visiteur repartir chercher ailleurs.
+
+### Le crédit d'impôt, un levier commercial non exploité
+
+Les petits travaux de jardinage, débroussaillage compris, ouvrent droit à un crédit d'impôt de **50 % des sommes versées, plafonné à 5 000 euros par an et par foyer fiscal**. La condition est que l'entreprise soit **déclarée au titre des services à la personne**.
+
+| Élément | État |
+|---|---|
+| L'entreprise est-elle déclarée services à la personne | **À CONFIRMER**, question ouverte |
+| Si oui, la mentionner sur les pages service et le devis | Non fait |
+| Si non, la déclaration se fait en ligne et elle est gratuite | À étudier |
+
+Pour un client, ce dispositif divise la facture par deux. Aucun concurrent relevé dans les résultats ne l'affiche. C'est un argument disponible et gratuit, à condition que le statut suive.
+
+### Une idée reçue à corriger, et elle est déjà corrigée sur le site
+
+« Quelle est la période d'interdiction de la taille des haies en 2026 » est une question fréquente, et la plupart des sites y répondent à côté. L'interdiction du 16 mars au 15 août relève de la norme BCAE 8 de la politique agricole commune et vise les exploitants agricoles percevant des aides, pas les particuliers. Les fiches chantier du site le disent correctement.
+
 ## Points bloquants, résumé
 
 Le site est en ligne et ouvert à l'indexation. Ces cinq ensembles restent donc à régler **en urgence**, puisqu'ils sont désormais visibles du public et des moteurs de recherche.
