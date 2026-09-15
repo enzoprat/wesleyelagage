@@ -272,9 +272,11 @@ Le SIREN 490 985 520 a été attribué vers 2006, et l'attestation porte la ment
 
 Relevé sur cinq pages de résultats entre le 5 et le 15 septembre 2026, sur les requêtes élagage et taille de haies dans la métropole.
 
-**Le prix revient dans dix questions sur seize.** Tarif horaire d'un élagueur, prix à la journée, prix moyen d'un élagage, tarif moyen pour une haie, taille de haie à moindre coût. Le site n'en dit pas un mot, et aucun chiffre ne sera inventé. C'est le premier manque de contenu du site, devant les avis et les certifications.
+**Le prix revient dans plus de la moitié des questions relevées.** Tarif horaire d'un élagueur, prix à la journée, prix moyen d'un élagage, tarif moyen pour une haie, élagage gratuit.
 
-Une fourchette suffit, même large, même assortie de conditions. Une page qui dit « à partir de tant, selon la hauteur et l'accès » répond à la question. Une page qui ne dit rien laisse le visiteur repartir chercher ailleurs.
+**Décision de l'entreprise du 15 septembre 2026, aucun chiffre ne figure sur le site.** Les questions de prix sont donc traitées autrement : les pages expliquent ce qui fait varier un devis, la hauteur, l'accès, le volume de bois à évacuer et les obstacles autour. Le visiteur repart avec une réponse utile, l'entreprise ne s'engage sur aucun montant.
+
+C'est un compromis tenable, à une condition. Le devis doit être annoncé gratuit et rapide partout où la question du prix se pose, sinon la page ne fait que reporter l'objection.
 
 ### Le crédit d'impôt, un levier commercial non exploité
 

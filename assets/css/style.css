@@ -2132,3 +2132,7 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
 /* Titre de fiche chantier devenu lien vers la page detaillee. */
 .chantier__titre a { color: inherit; text-decoration: none; }
 .chantier__titre a:hover { color: var(--mousse-profond); }
+
+/* Trois vues d'un même chantier, quand il n'y a pas de paire avant après. */
+.grille-trois { grid-template-columns: 1fr; }
+@media (min-width: 700px) { .grille-trois { grid-template-columns: repeat(3, 1fr); } }
