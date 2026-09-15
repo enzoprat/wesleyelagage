@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/realisations/haie-piscine-la-traine",
+      "destination": "/realisations/haie-piscine-latresne",
+      "permanent": true
+    },
+    {
+      "source": "/realisations/haie-piscine-la-traine/",
+      "destination": "/realisations/haie-piscine-latresne/",
+      "permanent": true
+    }
+  ]
+}
