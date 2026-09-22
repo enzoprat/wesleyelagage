@@ -130,7 +130,6 @@ Une fois vos photos livrées, retirez la mention « Photo d'illustration » du b
 | Commune de chaque chantier présenté | Accueil, réalisations | 33 | Oui |
 | Essence, hauteur, diamètre, linéaire, durée | Toutes les fiches chantier | 174 | Oui |
 | Détail réel des deux chantiers de chaque page ville | 12 pages ville | 12 | Oui |
-| Accord écrit des propriétaires pour la publication | Réalisations | 1 | Oui |
 | Modèle d'autorisation de publication | Réalisations | 1 | Non |
 | Délai réel d'intervention en urgence | Accueil, urgence, réalisations | 5 | Oui |
 
@@ -147,7 +146,7 @@ L'entreprise a fourni six photos, montées en trois fiches sur la page réalisat
 Trois points restent ouverts sur ces fiches.
 
 1. **La commune du chantier dit de La Traîne.** Le marqueur est en place, la ligne ne s'affiche donc pas. La fiche paraît sans commune, ce qui l'affaiblit face aux deux autres.
-2. **L'accord écrit des trois propriétaires.** Les jardins sont reconnaissables, et la page promet elle-même que rien n'est publié sans l'accord du propriétaire. À obtenir sans délai, le site est en ligne.
+2. **Réglé.** L'entreprise a confirmé le 22 septembre 2026 que l'accord du propriétaire est obtenu systématiquement, pour tous les chantiers publiés et à venir. Cette confirmation est orale. Aucune autorisation écrite n'est détenue au dossier, ce qui resterait à produire en cas de contestation.
 3. **Essence, hauteur et durée retirées** de ces trois fiches à la demande de l'entreprise. Les six emplacements encore vides les conservent, ils resurgiraient si on les remplissait.
 
 Ambarès-et-Lagrave appartient à Bordeaux Métropole sans avoir de page dédiée. La fiche illustre donc ce que la page zones annonce déjà, elle ne la contredit pas.
