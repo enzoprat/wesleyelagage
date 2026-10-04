@@ -1,0 +1,5 @@
+date,jours_donnees,impressions_cumul,clics_cumul,requetes_28j,pages_servies,part_anonym_imp,part_anonym_clics,requetes_au_seuil,pages_indexees,pages_inspectees,ecarts_canoniques
+2026-09-05,13,306,5,30,26,0.73,1.00,0,27,28,0
+2026-09-19,27,988,7,52,27,0.72,1.00,1,29,35,0
+2026-09-27,35,1186,12,60,28,0.70,1.00,1,,,
+2026-10-04,42,1477,12,64,29,0.69,1.00,1,30,37,0
