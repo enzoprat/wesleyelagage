@@ -745,6 +745,24 @@ a.etiquette:hover { background: var(--mousse); color: var(--blanc); }
   .premier-ecran { padding-block: 80px 56px; }
 }
 
+/* Variante à deux colonnes, texte et photo de chantier côte à côte.
+   Réservée aux pages de service qui reçoivent du trafic payant : la
+   preuve du métier doit être visible sans avoir à faire défiler. */
+.premier-ecran--visuel { text-align: left; padding-block: 32px 40px; }
+.premier-ecran--visuel .premier-ecran__texte { margin-inline: 0; max-width: 58ch; }
+.premier-ecran__grille { position: relative; display: grid; gap: 28px; }
+.premier-ecran__media { margin: 0; min-width: 0; }
+.premier-ecran__media figcaption { margin-top: 12px; }
+
+@media (min-width: 900px) {
+  .premier-ecran--visuel { padding-block: 56px 56px; }
+  .premier-ecran__grille {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 48px;
+    align-items: center;
+  }
+}
+
 /* Ligne de réassurance */
 .reassurance {
   display: flex;
@@ -958,8 +976,10 @@ a:hover > .visuel img,
 .visuel--panoramique { aspect-ratio: 16 / 7; }
 .visuel--carre { aspect-ratio: 1 / 1; }
 .visuel--portrait { aspect-ratio: 4 / 5; }
+.visuel--hero { aspect-ratio: 6 / 5; }
 
-/* Mention portée par les photos qui ne viennent pas des chantiers de l'entreprise. */
+/* Étiquette posée sur une photo : d'où elle vient, ou le fait qu'elle
+   ne vienne pas d'un chantier de l'entreprise. */
 .visuel__mention {
   position: absolute;
   right: 10px;
