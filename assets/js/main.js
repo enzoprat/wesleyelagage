@@ -69,8 +69,8 @@
      un numéro de téléphone, qui est de loin le premier geste sur ce
      métier et que la plupart des sites oublient de compter.
      ------------------------------------------------------------------ */
-  var ID_ADS = "";          // exemple AW-123456789
-  var ETIQUETTE_DEVIS = ""; // exemple AbC-D_efG
+  var ID_ADS = "AW-11423136870";
+  var ETIQUETTE_DEVIS = ""; // exemple AbC-D_efG, a relever dans Google Ads
   var ETIQUETTE_APPEL = "";
 
   var CLE_CONSENTEMENT = "lcc-consentement-mesure";
