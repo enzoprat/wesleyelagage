@@ -2136,3 +2136,34 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
 /* Trois vues d'un même chantier, quand il n'y a pas de paire avant après. */
 .grille-trois { grid-template-columns: 1fr; }
 @media (min-width: 700px) { .grille-trois { grid-template-columns: repeat(3, 1fr); } }
+
+/* --------------------------------------------------------------------------
+   29. Bandeau de consentement
+
+   Il n'apparaît que si une mesure est configurée. Tant que le site ne
+   dépose aucun cookie, il n'existe pas.
+   -------------------------------------------------------------------------- */
+.bandeau-consentement {
+  position: fixed;
+  left: var(--gouttiere);
+  right: var(--gouttiere);
+  bottom: var(--gouttiere);
+  z-index: 60;
+  max-width: 520px;
+  margin-inline: auto;
+  padding: 20px 22px;
+  border-radius: var(--r-carte);
+  background: var(--sapin);
+  color: var(--sur-sapin);
+  box-shadow: var(--ombre-flottante);
+}
+.bandeau-consentement p { font-size: 0.92rem; line-height: 1.55; margin: 0 0 16px; max-width: none; }
+.bandeau-consentement__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.bandeau-consentement__actions .bouton { flex: 1 1 auto; }
+.bandeau-consentement .bouton--contour { border-color: var(--sapin-ligne-forte); color: var(--sur-sapin); }
+.bandeau-consentement .bouton--contour:hover { background: var(--blanc); border-color: var(--blanc); color: var(--sapin); }
+
+/* La barre d'appel fixe occupe déjà le bas sur mobile. */
+@media (max-width: 1039px) {
+  .bandeau-consentement { bottom: calc(68px + var(--gouttiere) + env(safe-area-inset-bottom, 0px)); }
+}

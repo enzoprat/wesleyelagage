@@ -53,6 +53,98 @@
   });
 
   /* ------------------------------------------------------------------
+     Mesure des conversions
+
+     Rien ne se charge et aucun cookie n'est déposé tant que ID_ADS est
+     vide. Le site reste donc sans traceur, et la politique de
+     confidentialité reste exacte, jusqu'au jour où l'identifiant est
+     renseigné.
+
+     Le jour venu, coller l'identifiant de conversion Google Ads sous la
+     forme AW-XXXXXXXXX, puis l'étiquette de l'action de conversion.
+     Le bandeau de consentement apparaît alors de lui-même, et la
+     politique de confidentialité doit être mise à jour dans la foulée.
+
+     Deux conversions sont suivies. L'envoi du formulaire, et le clic sur
+     un numéro de téléphone, qui est de loin le premier geste sur ce
+     métier et que la plupart des sites oublient de compter.
+     ------------------------------------------------------------------ */
+  var ID_ADS = "";          // exemple AW-123456789
+  var ETIQUETTE_DEVIS = ""; // exemple AbC-D_efG
+  var ETIQUETTE_APPEL = "";
+
+  var CLE_CONSENTEMENT = "lcc-consentement-mesure";
+  var mesurePrete = false;
+
+  function consentementDonne() {
+    try { return window.localStorage.getItem(CLE_CONSENTEMENT) === "oui"; }
+    catch (e) { return false; }
+  }
+
+  function chargerMesure() {
+    if (mesurePrete || !ID_ADS) return;
+    mesurePrete = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    var balise = document.createElement("script");
+    balise.async = true;
+    balise.src = "https://www.googletagmanager.com/gtag/js?id=" + ID_ADS;
+    document.head.appendChild(balise);
+    window.gtag("js", new Date());
+    window.gtag("config", ID_ADS);
+  }
+
+  // Appelée aux moments qui comptent. Sans consentement ni identifiant,
+  // elle ne fait rien, ce qui permet de la poser partout sans risque.
+  function conversion(nom, etiquette) {
+    if (!ID_ADS || !consentementDonne()) return;
+    chargerMesure();
+    if (etiquette) window.gtag("event", "conversion", { send_to: ID_ADS + "/" + etiquette });
+    window.gtag("event", nom);
+  }
+  window.lccConversion = conversion;
+
+  if (ID_ADS && consentementDonne()) chargerMesure();
+
+  /* Bandeau de consentement, affiché seulement si une mesure est
+     configurée et que le visiteur n'a pas encore répondu. */
+  if (ID_ADS && !consentementDonne()) {
+    try {
+      var dejaRefuse = window.localStorage.getItem(CLE_CONSENTEMENT) === "non";
+      if (!dejaRefuse) {
+        var b = document.createElement("div");
+        b.className = "bandeau-consentement";
+        b.setAttribute("role", "dialog");
+        b.setAttribute("aria-label", "Consentement à la mesure d'audience");
+        b.innerHTML =
+          '<p>Nous souhaitons mesurer d\'où viennent les demandes de devis. ' +
+          'Cela suppose un cookie de Google, déposé seulement si vous l\'acceptez. ' +
+          'Le site fonctionne de la même façon si vous refusez.</p>' +
+          '<div class="bandeau-consentement__actions">' +
+          '<button type="button" class="bouton bouton--petit bouton--contour" data-refuser>Refuser</button>' +
+          '<button type="button" class="bouton bouton--petit bouton--mousse" data-accepter>Accepter</button>' +
+          '</div>';
+        document.body.appendChild(b);
+        b.querySelector("[data-accepter]").addEventListener("click", function () {
+          try { window.localStorage.setItem(CLE_CONSENTEMENT, "oui"); } catch (e) {}
+          chargerMesure(); b.remove();
+        });
+        b.querySelector("[data-refuser]").addEventListener("click", function () {
+          try { window.localStorage.setItem(CLE_CONSENTEMENT, "non"); } catch (e) {}
+          b.remove();
+        });
+      }
+    } catch (e) {}
+  }
+
+  /* Clic sur un numéro de téléphone. Sur ce métier, l'appel précède
+     presque toujours le formulaire, et il ne se compte pas tout seul. */
+  document.addEventListener("click", function (evenement) {
+    var lien = evenement.target.closest ? evenement.target.closest('a[href^="tel:"]') : null;
+    if (lien) conversion("appel_telephone", ETIQUETTE_APPEL);
+  });
+
+  /* ------------------------------------------------------------------
      Envoi des demandes de devis
 
      Les formulaires sont relayés par Web3Forms, qui reçoit la demande
@@ -490,6 +582,8 @@
             var affichage = zoneErreur(champ);
             if (affichage) affichage.textContent = "";
           });
+
+          conversion("devis_envoye", ETIQUETTE_DEVIS);
 
           if (confirmation) {
             confirmation.classList.add("est-visible");
