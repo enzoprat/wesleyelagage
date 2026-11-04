@@ -137,6 +137,110 @@
     } catch (e) {}
   }
 
+  /* ------------------------------------------------------------------
+     Landing de capture, /devis/
+
+     Tout ce bloc est inerte sur les autres pages : il ne s'exécute que si
+     le corps porte data-capture. Trois comportements, et rien de plus.
+     ------------------------------------------------------------------ */
+  if (document.body.hasAttribute("data-capture")) {
+    var choixPresta = document.getElementById("intervention");
+
+    // Défilement vers le formulaire, puis focus sur le premier champ.
+    // Le focus n'est posé qu'après le défilement, sinon le navigateur
+    // saute brutalement en bas de page avant l'animation.
+    function allerAuDevis(presta) {
+      var cible = document.getElementById("devis");
+      if (!cible) return;
+      if (presta && choixPresta) {
+        var trouve = Array.prototype.some.call(choixPresta.options, function (o) {
+          if (o.text !== presta) return false;
+          choixPresta.value = o.value || o.text;
+          return true;
+        });
+        if (trouve) choixPresta.setAttribute("aria-invalid", "false");
+      }
+      var brutal = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      cible.scrollIntoView({ behavior: brutal ? "auto" : "smooth", block: "start" });
+      var premier = document.getElementById("nom");
+      if (!premier) return;
+      window.setTimeout(function () {
+        premier.focus({ preventScroll: true });
+      }, brutal ? 0 : 500);
+    }
+
+    document.querySelectorAll("[data-vers-devis]").forEach(function (lien) {
+      lien.addEventListener("click", function (evenement) {
+        evenement.preventDefault();
+        allerAuDevis("");
+      });
+    });
+
+    document.querySelectorAll("[data-presta]").forEach(function (bouton) {
+      bouton.addEventListener("click", function () {
+        allerAuDevis(bouton.getAttribute("data-presta"));
+      });
+    });
+
+    var parametres = new URLSearchParams(window.location.search);
+
+    // Paramètres d'attribution publicitaire, recopiés dans des champs
+    // cachés du formulaire. Rien de personnel n'y transite.
+    document.querySelectorAll("[data-attribution]").forEach(function (champ) {
+      var valeur = parametres.get(champ.getAttribute("data-attribution"));
+      if (!valeur) return;
+      champ.value = valeur.slice(0, 200);
+    });
+    ["gbraid", "wbraid"].forEach(function (cle) {
+      var v = parametres.get(cle);
+      if (!v) return;
+      var deja = document.querySelector('[name="source_annonce"]');
+      if (deja && !deja.value) deja.value = cle + ":" + v.slice(0, 190);
+    });
+
+    /* Variante d'annonce. Le H1 et le chapeau s'alignent sur la recherche
+       ciblée, et la prestation est présélectionnée. Sans paramètre connu,
+       la page garde son contenu général. */
+    var variantes = {
+      elagage: {
+        titre: "Élagage d'arbres à Bordeaux Métropole",
+        chapeau: "Réduction de couronne, éclaircissage, taille de formation. LCC Espaces Verts intervient en grimpe ou en nacelle à Mérignac et dans toute Bordeaux Métropole. Demandez votre devis gratuit.",
+        presta: "Élagage"
+      },
+      abattage: {
+        titre: "Abattage d'arbres à Bordeaux Métropole",
+        chapeau: "Un arbre gênant, fragilisé ou trop proche de la maison ? LCC Espaces Verts intervient à Mérignac et dans toute Bordeaux Métropole. Demandez votre devis gratuit.",
+        presta: "Abattage d'arbres"
+      },
+      dessouchage: {
+        titre: "Dessouchage et rognage à Bordeaux Métropole",
+        chapeau: "Une souche à retirer pour replanter ou récupérer du terrain ? LCC Espaces Verts intervient à Mérignac et dans toute Bordeaux Métropole. Demandez votre devis gratuit.",
+        presta: "Dessouchage"
+      },
+      haies: {
+        titre: "Taille de haies à Bordeaux Métropole",
+        chapeau: "Entretien, réduction de hauteur et remise en forme de vos haies. LCC Espaces Verts intervient à Mérignac et dans toute Bordeaux Métropole. Demandez votre devis gratuit.",
+        presta: "Taille de haies"
+      }
+    };
+
+    var variante = variantes[(parametres.get("service") || "").toLowerCase()];
+    if (variante) {
+      var titre = document.querySelector("[data-titre-variante]");
+      var chapeau = document.querySelector("[data-chapeau-variante]");
+      if (titre) titre.textContent = variante.titre;
+      if (chapeau) chapeau.textContent = variante.chapeau;
+      if (choixPresta) {
+        Array.prototype.some.call(choixPresta.options, function (o) {
+          if (o.text !== variante.presta) return false;
+          choixPresta.value = o.value || o.text;
+          return true;
+        });
+      }
+      document.title = variante.titre + ", devis gratuit";
+    }
+  }
+
   /* Clic sur un numéro de téléphone. Sur ce métier, l'appel précède
      presque toujours le formulaire, et il ne se compte pas tout seul. */
   document.addEventListener("click", function (evenement) {

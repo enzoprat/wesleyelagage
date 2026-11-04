@@ -2187,3 +2187,150 @@ tr:last-child th, tr:last-child td { border-bottom: 0; }
 @media (max-width: 1039px) {
   .bandeau-consentement { bottom: calc(68px + var(--gouttiere) + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* --------------------------------------------------------------------------
+   30. Landing de capture, /devis/
+
+   Page d'acquisition destinée aux annonces, hors de l'index. Elle n'a ni
+   navigation ni liens de sortie autres que le téléphone et les pages
+   légales : chaque lien supplémentaire est une fuite de budget publicitaire.
+   Elle réutilise les composants du site, boutons, champs, visuels, pour
+   rester cohérente avec la marque sans dupliquer de styles.
+   -------------------------------------------------------------------------- */
+.capture-entete {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--trait);
+}
+.capture-entete__barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-block: 10px;
+}
+.logo--inerte { cursor: default; }
+.capture-entete__tel { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; }
+@media (max-width: 599px) {
+  .capture-entete__tel span { display: none; }
+  .capture-entete__tel { padding: 10px 12px; }
+  .capture-entete .logo__metier { display: none; }
+}
+
+.capture-hero { background: var(--sable); padding-block: 44px 48px; }
+.capture-hero__contenu { max-width: 760px; }
+.capture-hero h1 { margin-bottom: 18px; }
+.capture-hero__texte {
+  font-size: var(--t-chapeau);
+  color: var(--encre-douce);
+  max-width: 60ch;
+  margin-bottom: 28px;
+}
+.capture-hero__action { width: 100%; }
+@media (min-width: 600px) { .capture-hero__action { width: auto; } }
+@media (min-width: 900px) { .capture-hero { padding-block: 72px 76px; } }
+
+.capture-preuves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  font-size: 0.95rem;
+  color: var(--encre-douce);
+}
+.capture-preuves li { display: inline-flex; align-items: center; gap: 8px; }
+.capture-preuves svg { color: var(--mousse-profond); flex: 0 0 auto; }
+
+.capture-services { background: var(--blanc); padding-block: 48px; }
+.capture-services__entete { margin-bottom: 30px; }
+.capture-services__entete p { color: var(--encre-douce); margin: 10px 0 0; }
+@media (min-width: 900px) { .capture-services { padding-block: 72px; } }
+
+.capture-grille { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 560px) { .capture-grille { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .capture-grille { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } }
+
+.carte-presta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--blanc);
+  border: 1px solid var(--trait);
+  border-radius: var(--r-carte);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.carte-presta:hover { border-color: var(--mousse-vif); transform: translateY(-2px); }
+.carte-presta .visuel { border-radius: 0; }
+.carte-presta__corps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 22px;
+}
+.carte-presta__corps h3 { margin: 0; font-size: 1.12rem; }
+.carte-presta__corps p { margin: 0; color: var(--encre-douce); font-size: 0.95rem; }
+.carte-presta__action {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.capture-devis { background: var(--sable); padding-block: 48px 56px; scroll-margin-top: 72px; }
+.capture-devis__entete { margin-bottom: 26px; }
+.capture-devis__entete p { color: var(--encre-douce); margin: 10px 0 0; }
+@media (min-width: 900px) { .capture-devis { padding-block: 72px 80px; } }
+
+.capture-encart {
+  background: var(--blanc);
+  border: 1px solid var(--trait);
+  border-radius: var(--r-carte);
+  padding: 24px 20px 26px;
+}
+@media (min-width: 700px) { .capture-encart { padding: 34px 32px 36px; } }
+.capture-encart .champs { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px) { .capture-encart .champs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.capture-pied {
+  background: var(--blanc);
+  border-top: 1px solid var(--trait);
+  padding-block: 22px;
+  font-size: 0.88rem;
+  color: var(--encre-douce);
+}
+.capture-pied__barre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+.capture-pied p { margin: 0; }
+.capture-pied a { color: var(--encre-douce); margin-right: 16px; }
+.capture-pied a:last-child { margin-right: 0; }
+
+/* La barre fixe du site renvoie vers /contact/. Ici elle doit rester
+   dans la page, et la landing n'a pas de pied de page haut à dégager. */
+@media (max-width: 1039px) { body[data-capture] { padding-bottom: 82px; } }
+
+/* Appel et devis côte à côte. Sur une page d'acquisition, l'appel doit
+   rester à portée de pouce à chaque point de décision : beaucoup de
+   demandes d'élagage se règlent en une minute au téléphone. */
+.capture-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.capture-hero__actions .bouton { width: 100%; }
+.capture-appel { display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+@media (min-width: 600px) { .capture-hero__actions .bouton { width: auto; } }
+@media (min-width: 900px) { .capture-appel { display: none; } }
+
+.capture-ou { margin: 14px 0 0; font-size: 0.92rem; color: var(--encre-douce); }
+.capture-ou a { font-weight: 590; }
+@media (min-width: 900px) { .capture-ou { display: none; } }
