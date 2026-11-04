@@ -71,7 +71,7 @@
      ------------------------------------------------------------------ */
   var ID_ADS = "AW-11423136870";
   var ETIQUETTE_DEVIS = ""; // exemple AbC-D_efG, a relever dans Google Ads
-  var ETIQUETTE_APPEL = "";
+  var ETIQUETTE_APPEL = "90eYCKe_hrIdEOb4_MYq";
 
   var CLE_CONSENTEMENT = "lcc-consentement-mesure";
   var mesurePrete = false;
